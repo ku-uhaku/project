@@ -13,7 +13,7 @@
                     <h1 class="mt-3 ">Manage Exames</h1>
                 </div>
                 <div class="col-3">
-                    <a href="{{ route('admin.exams.create') }}" class="btn btn-primary p-2">ajouter un exam </a>
+                    
 
                 </div>
             </div>

@@ -18,6 +18,11 @@ class User extends Model
         return $this->hasMany(Payment::class, 'student_id');
     }
 
+    public function exam()
+    {
+        return $this->hasMany(Exam::class);
+    }
+
     protected static function newFactory(): UsersFactory
     {
         return UsersFactory::new();

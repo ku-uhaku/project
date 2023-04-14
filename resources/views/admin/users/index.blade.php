@@ -48,6 +48,9 @@
                                     <a href="{{ route('admin.users.show', $user->id) }}">
                                         <i class="fas fa-eye"></i>
                                     </a>
+                                    <a href="{{ route('admin.exams.create' , ['user' => $user->id]) }}">
+                                        <i class="bi bi-pass-fill"></i>
+                                    </a>
                                    <a href="{{ route('admin.users.edit', $user->id) }}">
                                         <i class="fas fa-edit"></i>
                                     </a>
