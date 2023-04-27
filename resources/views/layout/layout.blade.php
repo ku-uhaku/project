@@ -20,14 +20,13 @@
     <link href="{{ asset('css/style.css') }}" rel="stylesheet" />
 </head>
 
-<body class="d-flex flex-column vh-100">
+<body class="d-flex flex-column vh-100 justify-content-between">
 
-    <!-- Spinner Start -->
+    <!-- Spinner -->
     <div id="spinner"
         class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
         <div class="spinner-grow text-primary" role="status"></div>
     </div>
-    <!-- Spinner End -->
 
     @include('layout.header')
 
@@ -35,12 +34,14 @@
 
     @include('layout.footer')
 
+    @stack('scripts')
     <!-- Importing Necessary Javascript Files -->
     <script src="{{ asset('js/jquery-3.6.3.min.js') }}"></script>
-    <script src="{{ asset('js/bootstrap-5.2.3.min.js') }}"></script>
+    <script src="{{ asset('js/bootstrap.bundle-5.1.1.min.js') }}"></script>
 
     <!-- Custom Javascript File -->
     <script src="{{ asset('js/script.js') }}"></script>
-</body>
+
+    <script src="{{ asset('js/bootstrap.min.js') }}"></script>
 
 </html>

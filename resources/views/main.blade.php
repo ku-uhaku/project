@@ -3,7 +3,7 @@
 @section('title', 'Auto-école')
 
 @section('content')
-    <!-- Carousel Start -->
+    <!-- Carousel -->
     <section class="container-fluid p-0">
         <div id="header-carousel" class="carousel slide" data-bs-ride="carousel">
             <div class="carousel-inner">
@@ -48,9 +48,8 @@
             </button>
         </div>
     </section>
-    <!-- Carousel End -->
 
-    <!-- Start of summary section -->
+    <!-- Summary section -->
     <section class="container-fluid facts py-5 pt-lg-0">
         <div class="container py-5 pt-lg-0">
             <div class="row gx-0">
@@ -100,9 +99,8 @@
             </div>
         </div>
     </section>
-    <!-- End of summary section -->
 
-    <!-- Start of about section -->
+    <!-- About section -->
     <section class="container-xxl py-6" id="about-section">
         <div class="container">
             <div class="row g-5">
@@ -125,9 +123,9 @@
                             toute confiance
                         </h1>
                         <div class="row g-4">
-                            <div class="col-sm-6">
+                            {{-- <div class="col-sm-6">
                                 <a class="btn btn-primary py-3 px-5" href="">Read More</a>
-                            </div>
+                            </div> --}}
                             <div class="col-sm-6">
                                 <a class="d-inline-flex align-items-center btn btn-outline-primary border-2 p-2"
                                     href="">
@@ -143,9 +141,8 @@
             </div>
         </div>
     </section>
-    <!-- End of about section -->
 
-    <!-- Start of features -->
+    <!-- Features -->
     <section class="container-xxl py-6">
         <div class="container">
             <div class="row g-5">
@@ -208,9 +205,8 @@
             </div>
         </div>
     </section>
-    <!-- End of Features section -->
 
-    <!-- Start of contact section -->
+    <!-- Contact section -->
     <section class="container-xxl py-6" id="contact-section">
         <div class="container">
             <div class="col-lg-6">
@@ -222,33 +218,34 @@
                     contacter
                 </h1>
 
-                <form>
+                <form action="" method="post">
+                    @csrf
                     <div class="row g-3">
                         <div class="col-md-6">
                             <div class="form-floating">
                                 <input type="text" class="form-control border-0 bg-light" id="name"
-                                    placeholder="Your Name" />
+                                    placeholder="Your Name" name="name" />
                                 <label for="name">Votre Nom</label>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-floating">
                                 <input type="email" class="form-control border-0 bg-light" id="email"
-                                    placeholder="Your Email" />
+                                    placeholder="Your Email" name="email" />
                                 <label for="email">Votre Email</label>
                             </div>
                         </div>
                         <div class="col-12">
                             <div class="form-floating">
                                 <input type="text" class="form-control border-0 bg-light" id="subject"
-                                    placeholder="Subject" />
+                                    placeholder="Subject" name="subject" />
                                 <label for="subject">Le sujet</label>
                             </div>
                         </div>
                         <div class="col-12">
                             <div class="form-floating">
                                 <textarea class="form-control border-0 bg-light" placeholder="Leave a message here" id="message"
-                                    style="height: 150px"></textarea>
+                                    style="height: 150px" name="message"></textarea>
                                 <label for="message">Votre message</label>
                             </div>
                         </div>
@@ -262,5 +259,4 @@
             </div>
         </div>
     </section>
-    <!-- End of contact section -->
 @endsection

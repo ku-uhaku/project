@@ -289,3 +289,15 @@
 .copyright a:hover {
     color: var(--light);
 }
+
+table tr td {
+    padding: 10px;
+    font-size: 14px;
+}
+
+input{
+    box-shadow: none;
+}
+label{
+    font-size: 16px;
+}
