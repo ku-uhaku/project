@@ -51,9 +51,27 @@
                                 <hr class="dropdown-divider">
                             </li>
                             <li>
-                                <a class="dropdown-item">
+                                <a class="dropdown-item" href="{{ route('payments.index') }}">
+                                    <i class="fas fa-clipboard-list"></i>
+                                    <span>Payments</span>
+                                </a>
+                            </li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="{{ route('spendings.index') }}">
                                     <i class="fas fa-money-bill-wave"></i>
-                                    <span>Paiements</span>
+                                    <span>Spendings</span>
+                                </a>
+                            </li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="{{ route('bills.index') }}">
+                                    <i class="fas fa-money-bill-wave"></i>
+                                    <span>Bills</span>
                                 </a>
                             </li>
                         </ul>
@@ -61,7 +79,7 @@
                 @endif
             @endif
             @if (Auth::check())
-            {{-- nav-item dropdown me-lg-4 --}}
+                {{-- nav-item dropdown me-lg-4 --}}
                 <div class="nav-item dropdown me-lg-4">
                     <a class="nav-link dropdown-toggle d-flex align-items-center gap-2" id="userDropdown" role="button"
                         data-bs-toggle="dropdown" aria-expanded="false">

@@ -6,10 +6,13 @@ use App\Http\Controllers\NewPayment;
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\Auth\AuthController;
+use App\Http\Controllers\Crud\BillController;
 use App\Http\Controllers\Crud\ExamController;
 use App\Http\Controllers\Crud\UserController;
+use App\Http\Controllers\SuperAdminController;
 use App\Http\Controllers\Auth\ProfileController;
 use App\Http\Controllers\Crud\PaymentController;
+use App\Http\Controllers\Crud\SpendingController;
 
 /*
 |--------------------------------------------------------------------------
@@ -36,10 +39,17 @@ Route::prefix('dashboard')->middleware(['auth', 'admin'])->group(function () {
     Route::view('/', 'dashboard.index')->name('dashboard');
     Route::resource('users', UserController::class);
     Route::resource('payments', PaymentController::class);
+    Route::resource('spendings', SpendingController::class);
     Route::get('/payments/create/{user}', [NewPayment::class, 'create'])->name('payment.create');
     Route::post('/payments/store/{id}', [NewPayment::class, 'store'])->name('payment.store');
     Route::resource('exams', ExamController::class);
     Route::post('/exams/addStudent', [ExamController::class, 'addStudent'])->name('exams.addStudent');
     Route::post('/exams/updateResult', [ExamController::class, 'updateResult'])->name('exams.updateResult');
     Route::post('/exams/removeStudent', [ExamController::class, 'removeStudent'])->name('exams.removeStudent');
+    Route::resource('bills', BillController::class);
 });
+
+Route::get('superadmin', [SuperAdminController::class, 'index'])->name('superadmin.index')->middleware(['auth', 'admin']);
+Route::get('superadmin', [SuperAdminController::class, 'filter'])->name('superadmin.filter')->middleware(['auth', 'admin']);
+Route::get('superadmin/profits', [SuperAdminController::class, 'profits'])->name('superadmin.profits')->middleware(['auth', 'admin']);
+Route::get('superadmin/profits', [SuperAdminController::class, 'filterProfits'])->name('superadmin.filterProfits')->middleware(['auth', 'admin']);

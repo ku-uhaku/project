@@ -18,6 +18,8 @@
 
     <!-- Custom Stylesheet -->
     <link href="{{ asset('css/style.css') }}" rel="stylesheet" />
+    <!-- Font Awesome -->
+
 </head>
 
 <body class="d-flex flex-column vh-100 justify-content-between">
@@ -30,7 +32,9 @@
 
     @include('layout.header')
 
-    @yield('content')
+    <main class="flex-grow-1">
+        @yield('content')
+    </main>
 
     @include('layout.footer')
 

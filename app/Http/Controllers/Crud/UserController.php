@@ -63,6 +63,7 @@ class UserController extends Controller
         $user->address = $request->address;
         $user->birthdate = $request->birthdate;
         $user->password = bcrypt($request->password);
+        $user->bywho = Auth::user()->id;
 
         // Check if the request has a file
         if ($request->hasFile('image')) {
@@ -89,7 +90,8 @@ class UserController extends Controller
         if ($user->id == Auth::user()->id) {
             return redirect()->route('profile');
         } else {
-            return view('dashboard.users.show', compact('user'));
+            $bywho = User::find($user->bywho);
+            return view('dashboard.users.show', compact(['user', 'bywho']));
         }
     }
 
@@ -126,6 +128,7 @@ class UserController extends Controller
         $user->phone = $request->phone;
         $user->address = $request->address;
         $user->birthdate = $request->birthdate;
+        $user->bywho = Auth::user()->id;
 
         // Check if the request has a file
         if ($request->hasFile('image')) {

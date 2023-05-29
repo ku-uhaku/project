@@ -14,4 +14,9 @@ class Payment extends Model
     {
         return $this->belongsTo(User::class, 'student_id');
     }
+
+    public function bywho()
+    {
+        return $this->belongsTo(User::class, 'bywho');
+    }
 }

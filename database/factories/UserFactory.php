@@ -25,6 +25,7 @@ class UserFactory extends Factory
             'password' => bcrypt('password'),
             'type' => 'student',
             'image' => null,
+            'bywho' => '1',
         ];
     }
 }

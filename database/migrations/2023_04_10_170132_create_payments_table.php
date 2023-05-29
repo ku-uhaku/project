@@ -18,6 +18,7 @@ return new class extends Migration
             $table->decimal('goal_amount', 10, 2);
             $table->decimal('remaining_amount', 10, 2)->nullable();
             $table->date('payment_date')->nullable();
+            $table->foreignId('bywho')->constrained('users')->onDelete('cascade');
             $table->timestamps();
         });
     }

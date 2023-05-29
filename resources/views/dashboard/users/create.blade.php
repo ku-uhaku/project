@@ -20,21 +20,23 @@
                 <div class="row mb-3">
                     <div class="col">
                         <div class="form-outline">
-                             <input type="text" class="form-control" id="name" name="name" value="{{ old('name') }}">
-                             @error('name')
+                            <input type="text" class="form-control" id="name" name="name"
+                                value="{{ old('name') }}">
+                            @error('name')
                                 <div class="text-danger">{{ $message }}</div>
                             @enderror
-                             <label for="name" class="form-label">Nom</label>
+                            <label for="name" class="form-label">Nom</label>
                         </div>
                     </div>
                     <div class="col">
                         <div class="form-outline">
-                            <input type="text" class="form-control" disabled id="prenom" name="" value="{{ old('') }}">
+                            <input type="text" class="form-control" disabled id="prenom" name=""
+                                value="{{ old('') }}">
                             @error('name')
                                 <div class="text-danger">{{ $message }}</div>
                             @enderror
                             <label for="name" class="form-label">Prenom</label>
-                            
+
                         </div>
                     </div>
                 </div>
@@ -48,31 +50,34 @@
                                 <div class="text-danger">{{ $message }}</div>
                             @enderror
                             <label for="address" class="form-label">Date de naissance</label>
-                            
+
                         </div>
                     </div>
                     <div class="col">
                         <div class="form-outline">
-                        <input type="text" class="form-control" id="phone" name="phone" value="{{ old('phone') }}">
-                        <label for="phone" class="form-label">Telephone</label>
+                            <input type="text" class="form-control" id="phone" name="phone"
+                                value="{{ old('phone') }}">
+                            @error('phone')
+                                <div class="text-danger">{{ $message }}</div>
+                            @enderror
+                            <label for="phone" class="form-label">Telephone</label>
 
-                        @error('phone')
-                            <div class="text-danger">{{ $message }}</div>
-                        @enderror
+
                         </div>
-                        
+
                     </div>
                 </div>
 
                 <div class="row mb-3">
                     <div class="col">
                         <div class="form-outline">
-                            <input type="string" class="form-control" id="address" name="address" value="{{ old('address') }}">
+                            <input type="string" class="form-control" id="address" name="address"
+                                value="{{ old('address') }}">
                             @error('address')
                                 <div class="text-danger">{{ $message }}</div>
                             @enderror
                             <label for="address" class="form-label">Adresse</label>
-                            
+
                         </div>
                     </div>
                     <div class="col">
@@ -83,14 +88,14 @@
                             @enderror
                             <label for="address" class="form-label">Photo</label>
 
-                           
+
                         </div>
-                        
+
                     </div>
                 </div>
-               
+
                 <div class="mb-3">
-                    
+
                     <input type="email" class="form-control" id="email" name="email" value="{{ old('email') }}">
                     @error('email')
                         <div class="text-danger">{{ $message }}</div>
@@ -99,9 +104,9 @@
                         Adresse email
                     </label>
 
-                    
+
                 </div>
-              
+
                 <div class="mb-3">
                     <input type="password" class="form-control" id="password" name="password">
                     @error('password')
@@ -130,7 +135,7 @@
                     <label for="type" class="form-label">Type</label>
 
                 </div>
-               
+
                 <button type="submit" class="btn btn-primary">Créer</button>
             </form>
         </section>

@@ -2,7 +2,9 @@
 
 namespace App\Models;
 
+use App\Models\Bill;
 use App\Models\Payment;
+use App\Models\Spending;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Contracts\Auth\Authenticatable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -48,5 +50,15 @@ class User extends Model implements Authenticatable
     {
 
         return $this->hasMany(Payment::class, 'student_id');
+    }
+
+    public function bills()
+    {
+        return $this->hasMany(Bill::class, 'bywho');
+    }
+
+    public function admin()
+    {
+        return $this->hasMany(User::class, 'bywho');
     }
 }

@@ -24,16 +24,16 @@
                 </div>
             </div>
 
-            
 
-            
+
+
         </h5>
 
-        
+
 
         <div>
-            <form id="updateuserform" action="{{ route('users.update', $user->id) }}"
-                method="POST" enctype="multipart/form-data">
+            <form id="updateuserform" action="{{ route('users.update', $user->id) }}" method="POST"
+                enctype="multipart/form-data">
                 @csrf
                 @method('PUT')
 
@@ -42,8 +42,8 @@
                         <div class="mb-1">
                             <label for="image" class="form-label">
                                 @if ($user->image)
-                                    <img src="{{ asset('storage/profiles/' . $user->image) }}" alt="Profile Image" width="100"
-                                        height="100" class="mb-3 rounded-circle">
+                                    <img src="{{ asset('storage/profiles/' . $user->image) }}" alt="Profile Image"
+                                        width="100" height="100" class="mb-3 rounded-circle">
                                 @else
                                     <img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png"
                                         alt="Profile Image" width="100" height="100" class="mb-3 rounded-circle">
@@ -56,47 +56,52 @@
                         </div>
                         <div class="ms-3">
                             <h5 class="text-capitalize">{{ $user->name }}</h5>
-                            <p class="text-capitalize">@if ($user->type == 'admin')
-                                <span class="badge bg-danger">Administrateur</span>
-                            @elseif($user->type == 'student')
-                                <span class="badge bg-primary">Étudiant</span>
-                            @elseif($user->type == 'instructor')
-                                <span class="badge bg-success">Instructeur</span>
-                            @endif</p>
+                            <p class="text-capitalize">
+                                @if ($user->type == 'admin')
+                                    <span class="badge bg-danger">Administrateur</span>
+                                @elseif($user->type == 'student')
+                                    <span class="badge bg-primary">Étudiant</span>
+                                @elseif($user->type == 'instructor')
+                                    <span class="badge bg-success">Instructeur</span>
+                                @endif
+                            </p>
                         </div>
                     </div>
-                    
-                       
-                        
-                      <div class="dropdown">
-                        <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                          Dropdown button
+
+
+
+                    <div class="dropdown">
+                        <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton1"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            Dropdown button
                         </button>
                         <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                          <li><a class="dropdown-item" href="#">
-                            <div>
-                                <i class="fas fa-chalkboard-teacher"></i>
-                            <span>
-                                Les seances
-                            </span>
-                            </div>
-                            </a></li>
-                          <li><a class="dropdown-item" href="#">
-                            <div>
-                                <i class="fa-solid fa-car"></i>
-                                    <span>
-                                        Les examens
-                                    </span>
-                            </div></a></li>
-                          <li><a class="dropdown-item" href="#">
-                            <div>
-                                <i class="fa-regular fa-credit-card"></i>
-                                <span>
-                                    Les paiements
-                                </span></div>    
-                            </a></li>
+                            <li><a class="dropdown-item" href="#">
+                                    <div>
+                                        <i class="fas fa-chalkboard-teacher"></i>
+                                        <span>
+                                            Les seances
+                                        </span>
+                                    </div>
+                                </a></li>
+                            <li><a class="dropdown-item" href="#">
+                                    <div>
+                                        <i class="fa-solid fa-car"></i>
+                                        <span>
+                                            Les examens
+                                        </span>
+                                    </div>
+                                </a></li>
+                            <li><a class="dropdown-item" href="#">
+                                    <div>
+                                        <i class="fa-regular fa-credit-card"></i>
+                                        <span>
+                                            Les paiements
+                                        </span>
+                                    </div>
+                                </a></li>
                         </ul>
-                      </div>
+                    </div>
                 </div>
                 {{-- <div class="d-flex justifuy-content-start align-items-center">
                     <div class="mb-1">
@@ -129,14 +134,15 @@
                 <div class="row mb-4">
                     <div class="col">
                         <div class="form-outline">
-                            
-                            <input type="text" class="form-control" id="name" name="name" value="{{ $user->name }}">
-        
+
+                            <input type="text" class="form-control" id="name" name="name"
+                                value="{{ $user->name }}">
+
                             @error('name')
                                 <div class="text-danger">{{ $message }}</div>
                             @enderror
                             <label for="name" class="form-label">
-    
+
                                 <span>Nom </span>
                             </label>
                         </div>
@@ -144,47 +150,49 @@
 
                     <div class="col">
                         <div class="form-outline">
-                            
-                            <input type="text" class="form-control" id="name" name="" disabled value="{{ $user->name }}">
-        
+
+                            <input type="text" class="form-control" id="name" name="" disabled
+                                value="{{ $user->name }}">
+
                             @error('name')
                                 <div class="text-danger">{{ $message }}</div>
                             @enderror
                             <label for="name" class="form-label">
-                             
+
                                 <span>Prenom </span>
                             </label>
                         </div>
 
                     </div>
-                    
+
                 </div>
                 <div class="row mb-4">
                     <div class="col">
                         <div class="form-outline">
-                            
-                            <input type="text" class="form-control" id="address" name="address" value="{{ $user->address }}">
-        
+
+                            <input type="text" class="form-control" id="address" name="address"
+                                value="{{ $user->address }}">
+
                             @error('address')
                                 <div class="text-danger">{{ $message }}</div>
                             @enderror
                             <label for="address" class="form-label">
-                                
+
                                 <span>Adresse</span>
                             </label>
                         </div>
                     </div>
                     <div class="col">
                         <div class="form-outline">
-                            
+
                             <input type="date" class="form-control" id="birthdate" name="birthdate"
                                 value="{{ $user->birthdate }}">
-        
+
                             @error('birthdate')
                                 <div class="text-danger">{{ $message }}</div>
                             @enderror
                             <label for="birthdate" class="form-label">
-                        
+
                                 <span>Date de naissance</span>
                             </label>
                         </div>
@@ -192,9 +200,10 @@
                 </div>
                 <div class="row mb-1">
                     <div class="mb-3">
-                   
-                        <input type="email" class="form-control" id="email" name="email" value="{{ $user->email }}">
-    
+
+                        <input type="email" class="form-control" id="email" name="email"
+                            value="{{ $user->email }}">
+
                         @error('email')
                             <div class="text-danger">{{ $message }}</div>
                         @enderror
@@ -205,9 +214,10 @@
                 </div>
                 <div class="row mb-1">
                     <div class="mb-3">
-                    
-                        <input type="text" class="form-control" id="phone" name="phone" value="{{ $user->phone }}">
-    
+
+                        <input type="text" class="form-control" id="phone" name="phone"
+                            value="{{ $user->phone }}">
+
                         @error('phone')
                             <div class="text-danger">{{ $message }}</div>
                         @enderror
@@ -216,41 +226,40 @@
                         </label>
                     </div>
                 </div>
-    
-                
+
+                <div class="">
+                    <button type="submit" class="btn btn-primary">
+                        <i class="fas fa-user-edit"></i>
+                        <span>
+                            Modifier l'utilisateur
+                        </span>
+                    </button>
+                </div>
                 <div class="d-flex justfuy-content-start gap-3">
+
                     <div class="">
-                        <button type="submit" class="btn btn-primary">
-                            <i class="fas fa-user-edit"></i>
-                            <span>
-                                Modifier l'utilisateur
-                            </span>
-                        </button>
-                    </div>
-                   <div class="">
-                        <form id="deleteuserform" action="{{ route('users.destroy', $user->id) }}"
-                            method="POST">
+                        {{-- <form id="deleteuserform" action="{{ route('users.destroy', $user->id) }}" method="POST">
                             @csrf
                             @method('DELETE')
-                            <div>                
-                                    <button type="submit" class="btn btn-danger align-self-start">
-                                        <i class="fas fa-trash"></i>
-                                        <span>
-                                            Supprimer l'utilisateur
-                                        </span>
-                                    </button>
+                            <div>
+                                <button type="submit" class="btn btn-danger align-self-start">
+                                    <i class="fas fa-trash"></i>
+                                    <span>
+                                        Supprimer l'utilisateur
+                                    </span>
+                                </button>
                             </div>
-                        </form>
-                   </div>
+                        </form> --}}
+                    </div>
                 </div>
-                
+
             </form>
         </div>
-        
+
 
         {{-- <x-alerts></x-alerts> --}}
 
- 
+
 
 
 

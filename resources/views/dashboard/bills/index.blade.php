@@ -8,11 +8,11 @@
 
         <div class="container">
             <div class="row">
-                <h1 class="mb-4 h2 ">Gérer les spendings</h1>
+                <h1 class="mb-4 h2 ">Gérer les bills</h1>
                 <x-alerts></x-alerts>
             </div>
             <div class="row mb-3">
-                <form action="{{ route('spendings.index') }}" method="GET">
+                {{-- <form action="{{ route('payments.index') }}" method="GET">
                     <div class="input-group">
                         <input type="text" name="search" class="form-control" placeholder="Search by name...">
                         <div class="input-group-append">
@@ -26,15 +26,15 @@
                             </a>
                         </div>
                     </div>
-                </form>
-            </div>
+                </form> --}}
 
+            </div>
             <div class="row">
                 <div class="d-flex justify-content-between  mb-4  align-items-center">
                     <h5>
                         <span>
                             <i class="fas fa-user"></i>
-                            Vous visualisez spending les utilisateurs: ( {{ $spendings->count() }} )
+                            Vous visualisez bills: ({{ $bills->count() }})
                             <span class="text-primary"></span>
                         </span>
                     </h5>
@@ -47,53 +47,58 @@
                 </div>
             </div>
 
-            <div class="row">
-                @if ($spendings->isNotEmpty())
+            @if ($bills->count() != 0)
+                <div class="row">
                     <table class="table table-striped">
                         <thead>
                             <tr>
                                 <th>#</th>
-                                <th>Nom</th>
                                 <th>Titre</th>
-                                <th>Montant</th>
-                                <th>Date</th>
-                                <th>Actions</th>
+                                <th>Amount</th>
+                                <th>description</th>
+                                <th>by who</th>
+                                <th>Crée on</th>
+
+                                <th>actions</th>
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($spendings as $spending)
+                            @foreach ($bills as $bill)
                                 <tr>
-                                    <td>{{ $spending->user_id }}</td>
-                                    <td>{{ $spending->user_name }}</td>
-                                    <td>{{ $spending->title }}</td>
-                                    <td>{{ $spending->amount_spent }}</td>
-                                    <td>{{ substr($spending->created_at, 0, 10) }}</td>
+                                    <td>{{ $bill->id }}</td>
+
+                                    <td>{{ $bill->title }}</td>
+                                    <td>{{ $bill->amount }}</td>
+                                    <td>{{ substr($bill->description, 0, 20) }}</td>
+                                    <td>{{ $bill->user->name }}</td>
+                                    <td>{{ substr($bill->created_at, 0, 10) }}</td>
                                     <td>
-                                        <a href="{{ route('spendings.show', ['spending' => $spending->user->id]) }}">
-                                            <i class="fas fa-eye"></i>
-                                        </a>
-                                        <a href="{{ route('spendings.create', ['user' => $spending->user_id]) }}">
-                                            <i class="fa-solid fa-circle-plus me-2"></i>
-
-                                        </a>
+                                        <div class="d-flex justify-content-between">
+                                            <a href="{{ route('bills.edit', $bill->id) }}">
+                                                <i class="text-primary fas fa-edit fa-1x me-1"></i>
+                                            </a>
+                                        </div>
                                     </td>
-
                                 </tr>
                             @endforeach
                         </tbody>
                     </table>
-                @else
-                    <div class="alert alert-info">
-                        <i class="fas fa-info-circle"></i>
-                        Aucun payment n'a été trouvé.
-                    </div>
-                @endif
+
+                    {{-- <div class="d-flex justify-content-center">
+                        {{ $bills->links() }}
+                    </div> --}}
+                </div>
+            @else
+                <p>No Bills yet</p>
+            @endif
+            <div class=" ">
+                <a href="{{ route('bills.create') }}" class="btn btn-primary">
+                    <i class="fas fa-plus-circle me-1"></i>
+                    Ajouter un bill
+                </a>
             </div>
+
         </div>
-
-
-
-
 
 
 

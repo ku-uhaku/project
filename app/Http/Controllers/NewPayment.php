@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Payment;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class NewPayment extends Controller
 {
@@ -30,6 +31,7 @@ class NewPayment extends Controller
         $payment->goal_amount = $request->total;
         $payment->remaining_amount = $request->total;
         $payment->amount_paid = $request->amount;
+        $payment->bywho = Auth::user()->id;
         $payment->save();
 
         return redirect()->route('payments.index')->with('success', 'Payment added successfully');

@@ -8,7 +8,7 @@
 
         <section class="manage-users-section container py-3">
             <h1 class="mb-4 h2 ">Gérer des utilisateurs</h1>
-            
+
             <x-alerts></x-alerts>
 
             <form class="input-group mb-3" method="GET" action="{{ route('users.index') }}">
@@ -72,9 +72,9 @@
                                     </td>
                                     <td class="align-middle">{{ $user->email }}</td>
                                     <td class="align-middle">{{ $user->phone }}</td>
-                                    <td class="align-middle">{{ substr($user->address, 0 , 20) }}</td>
+                                    <td class="align-middle">{{ substr($user->address, 0, 20) }}</td>
                                     <td class="align-middle text-capitalize">{{ $user->type }}</td>
-                                    <td class="align-middle">{{substr( $user->created_at, 0, 10) }}</td>
+                                    <td class="align-middle">{{ substr($user->created_at, 0, 10) }}</td>
                                     <td class=" align-middle d-flex justify-content-around align-items-center">
                                         <a href="{{ route('users.show', $user->id) }}" class="py-3">
                                             <i class="fas fa-eye"></i>
@@ -83,10 +83,16 @@
                                             <i class="fas fa-edit"></i>
                                         </a>
 
-                                        <a href="{{ route('payments.show', $user->id) }}">
-                                            <i class="fas fa-money-bill-wave"></i>
-                                        </a>
 
+                                        @if ($user->type == 'admin' || $user->type == 'instructor')
+                                            <a href="{{ route('spendings.show', $user->id) }}">
+                                                <i class="fas fa-money-bill-wave"></i>
+                                            </a>
+                                        @else
+                                            <a href="{{ route('payments.show', $user->id) }}">
+                                                <i class="fas fa-money-bill-wave"></i>
+                                            </a>
+                                        @endif
                                         <form action="{{ route('users.destroy', $user->id) }}" method="POST">
                                             @csrf
                                             @method('DELETE')

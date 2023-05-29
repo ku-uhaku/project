@@ -5,7 +5,6 @@
 @section('content')
 
     <div class="container mt-4 mb-5">
-
         {{-- User --}}
 
         <div class="row">
@@ -25,23 +24,26 @@
                 <div class="d-flex justify-content-start align-items-center mt-3">
                     <div>
                         @empty($user->image)
-                                    <img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png"
-                                        alt="Image" width="100" height="100" class="rounded-circle">
+                            <img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png"
+                                alt="Image" width="100" height="100" class="rounded-circle">
                         @else
-                                    <img src="{{ asset('storage/profiles/' . $user->image) }}" alt="Image" width="100" height="10">
+                            <img src="{{ asset('storage/profiles/' . $user->image) }}" alt="Image" width="100"
+                                height="10">
                         @endempty
                     </div>
                     <div class="ms-3">
                         <h5 class="text-capitalize">{{ $user->name }}</h5>
-                        <p class="text-capitalize">@if ($user->type == 'admin')
-                            <span class="badge bg-danger">Administrateur</span>
-                        @elseif($user->type == 'student')
-                            <span class="badge bg-primary">Étudiant</span>
-                        @elseif($user->type == 'instructor')
-                            <span class="badge bg-success">Instructeur</span>
-                        @endif</p>
+                        <p class="text-capitalize">
+                            @if ($user->type == 'admin')
+                                <span class="badge bg-danger">Administrateur</span>
+                            @elseif($user->type == 'student')
+                                <span class="badge bg-primary">Étudiant</span>
+                            @elseif($user->type == 'instructor')
+                                <span class="badge bg-success">Instructeur</span>
+                            @endif
+                        </p>
                     </div>
-                    
+
                 </div>
                 <table class="table">
                     <tbody>
@@ -116,24 +118,17 @@
                                 @endif
                             </td>
                         </tr>
-                        {{-- <tr>
+                        <tr>
                             <td>
                                 <strong>
                                     <i class="fas fa-image"></i>
-                                    Image:
-
+                                    Add by who:
                                 </strong>
                             </td>
                             <td>
-                                @empty($user->image)
-                                    <img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png"
-                                        alt="Image" width="50" height="50">
-                                @else
-                                    <img src="{{ asset('storage/profiles/' . $user->image) }}" alt="Image" width="50"
-                                        height="50">
-                                @endempty
+                                {{ $bywho->name }}
                             </td>
-                        </tr> --}}
+                        </tr>
                     </tbody>
                 </table>
                 <a href="{{ route('users.edit', $user->id) }}" class="btn btn-primary">
