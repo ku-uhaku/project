@@ -13,6 +13,8 @@ return new class extends Migration
     {
         Schema::create('vehicles', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('user_id')->constrained('users')->cascadeOnDelete()->cascadeOnUpdate();
+            $table->string('title', 50);
             $table->string('matricule', 20)->unique();
             $table->string('model', 50);
             $table->string('image', 200)->nullable();

@@ -54,43 +54,18 @@
                                 </select>
                             </div>
                         </div>
-                        <div class="col">
-                            <div class="input-group">
-                                <select name="day" id="day" class="form-control">
-                                    <option value=""> Day</option>
-                                    @for ($i = 1; $i <= 31; $i++)
-                                        <option value="{{ str_pad($i, 2, '0', STR_PAD_LEFT) }}"
-                                            {{ request()->input('day') == $i ? 'selected' : '' }}>
-                                            {{ str_pad($i, 2, '0', STR_PAD_LEFT) }}
-                                        </option>
-                                    @endfor
-                                </select>
-                            </div>
-                        </div>
-                        <div class="col">
-                            <div class="input-group">
-                                <select name="admin" id="admin" class="form-control">
-                                    <option value=""> admin</option>
-                                    @foreach ($admins as $admin)
-                                        <option value="{{ $admin->id }}"
-                                            {{ request()->input('admin') == $admin->id ? 'selected' : '' }}>
-                                            {{ $admin->name }}</option>
-                                    @endforeach
-                                </select>
-                            </div>
-                        </div>
 
 
                         <div class="row my-3">
                             <div class="col-3">
                                 <div class="input-group">
-                                    <input type="date" class="form-control">
+                                    <input type="date" class="form-control" name="start">
 
                                 </div>
                             </div>
                             <div class="col-3">
                                 <div class="input-group">
-                                    <input type="date" class="form-control">
+                                    <input type="date" class="form-control" name="end">
 
                                 </div>
                             </div>
@@ -110,18 +85,35 @@
 
 
             <div class="row g-3 mt-3">
-                <div class="col-md-12">
+                <div class="col-md-12 mb-3">
                     <div>
-                        <h5>
+                        <h3>
                             <i class="fas fa-users"></i>
-                            Vous visualisez les profits ({{ isset($results) ? $profits->count() : '0' }})
-                        </h5>
+                            Vous visualisez les profits
+                        </h3>
                     </div>
                 </div>
             </div>
 
             <div class="row">
-                <div class="col-sm-4 shadow-sm p-3 mb-5 bg-body rounded">
+                <div class="col-6 shadow-sm mb-5 bg-body rounded ml-3">
+                    <div>
+                        <div>
+                            <canvas id="chart"></canvas>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6 shadow-sm  mb-5 bg-body rounded">
+                    <div>
+                        <div>
+                            <canvas id="ProfitChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-4 shadow-sm  ml-2 p-3 mb-5 bg-body rounded">
                     <h3>total payment</h3>
                     <h3 class="counter" data-end="{{ $totalPayment }}"></h3>
                 </div>
@@ -135,23 +127,141 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col col-sm-5 shadow p-3 mb-5 bg-body rounded">
-                    <h3>total</h3>
+                <div class="shadow px-3 py-5 mb-5 bg-body rounded ">
+                    <h3>total Profits you make </h3>
 
                     <h2 class="counter {{ $total > 0 ? 'text-info' : 'text-danger' }}" data-end="{{ $total }}">
                     </h2>
                 </div>
             </div>
 
-            <div class="row">
-                <div class="col-6 shadow-sm p-3 mb-5 bg-body rounded">
-                    <canvas id="lineChart"></canvas>
-                </div>
+
+
+            <div class="row mb-3">
+                <a href="{{ route('superadmin.profitsDetails', [
+                    'year' => request()->query('year'),
+                    'month' => request()->query('month'),
+                    'start' => request()->query('start'),
+                    'end' => request()->query('end'),
+                ]) }}"
+                    class="btn btn-primary col-3">More info</a>
+
+
+
+
             </div>
 
 
 
 
         </section>
+
     </main>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        let monthlySumpayment = {{ json_encode($monthlySumpayment) }};
+        let monthlySumSpending = {{ json_encode($monthlySumSpending) }};
+        let monthlySumBills = {{ json_encode($monthlySumBills) }};
+
+        function addArrays(arr1, arr2) {
+            const result = [];
+
+            for (let i = 0; i < arr1.length; i++) {
+                const sum = arr1[i] + arr2[i];
+                result.push(sum);
+            }
+
+            return result;
+        }
+
+        function subArrays(arr1, arr2) {
+            const result = [];
+
+            for (let i = 0; i < arr1.length; i++) {
+                const sum = arr1[i] - arr2[i];
+                result.push(sum);
+            }
+
+            return result;
+        }
+
+        const depance = addArrays(monthlySumSpending, monthlySumBills);
+        const profit = subArrays(monthlySumpayment, depance);
+
+        const ctx = document.getElementById("chart");
+        const ctx2 = document.getElementById("ProfitChart");
+
+        new Chart(ctx, {
+            type: "line",
+            data: {
+                labels: [
+                    "Janvier",
+                    "Février",
+                    "Mars",
+                    "Avril",
+                    "Mai",
+                    "Juin",
+                    "Juillet",
+                    "Aout",
+                    "Septembre",
+                    "Octobre",
+                    "Novembre",
+                    "Décembre",
+                ],
+                datasets: [{
+                        label: "Payment",
+                        data: monthlySumpayment,
+                        borderWidth: 2,
+                    },
+                    {
+                        label: "Expense",
+                        data: depance,
+                        borderWidth: 2,
+                    },
+                ],
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                    },
+                },
+            },
+        });
+
+        new Chart(ctx2, {
+            type: "line",
+            data: {
+                labels: [
+                    "Janvier",
+                    "Février",
+                    "Mars",
+                    "Avril",
+                    "Mai",
+                    "Juin",
+                    "Juillet",
+                    "Aout",
+                    "Septembre",
+                    "Octobre",
+                    "Novembre",
+                    "Décembre",
+                ],
+                datasets: [{
+                    label: "Profits",
+                    data: profit,
+                    borderWidth: 2,
+                }],
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                    },
+                },
+            },
+        });
+    </script>
+
+
+
 @endsection

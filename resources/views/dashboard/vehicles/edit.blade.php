@@ -1,0 +1,116 @@
+@extends('layout.layout')
+
+@section('title', 'Gérer les Vehicles')
+
+@section('content')
+    <main class="d-flex justify-content-between flex-row">
+        <div class="container">
+            <div class="row">
+                <h1 class="my-4 h2 ">Gérer les Vehicles:</h1>
+                <x-alerts></x-alerts>
+
+
+
+            </div>
+
+            <div class="row">
+                <div class="d-flex justify-content-between  mb-4  align-items-center">
+                    <h5>
+                        <span>
+                            <i class="fas fa-user"></i>
+                            Modifier les Vehicles:
+                            <span class="text-primary"></span>
+                        </span>
+
+
+                    </h5>
+                    <div>
+                        <a href="{{ redirect()->back()->getTargetUrl() }}" class="btn btn-primary float-end">
+                            <i class="fas fa-arrow-left"></i>
+                            Retour
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <form action="{{ route('vehicles.store') }}" method="post">
+                @csrf
+                <div class="row">
+                    <div class="col">
+                        <div class="form-outline">
+                            <input type="text" class="form-control" name="title" id="title"
+                                value="{{ $vehicle->title }}">
+                            @error('title')
+                                <small class="text-danger">{{ $message }}</small>
+                            @enderror
+                            <label for="title" class="form-label">Titre</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <div class="form-outline">
+                            <input type="text" class="form-control" name="matricule" id="matricule"
+                                value="{{ $vehicle->matricule }}">
+                            @error('matricule')
+                                <small class="text-danger">{{ $message }}</small>
+                            @enderror
+                            <label for="matricule" class="form-label">Matricule</label>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="form-outline">
+                            <input type="text" class="form-control" name="model" id="model"
+                                value="{{ $vehicle->model }}">
+                            @error('model')
+                                <small class="text-danger">{{ $message }}</small>
+                            @enderror
+                            <label for="model" class="form-label">Model</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col">
+                        <div class="form-outline">
+                            <input type="file" class="form-control" name="image" id="image"
+                                value="{{ old('image') }}">
+                            @error('image')
+                                <small class="text-danger">{{ $message }}</small>
+                            @enderror
+                            <label for="image" class="form-label">image</label>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="form-outline">
+                            <select name="instructors" id="instructors" class="form-control">
+                                <option value="">Instructor</option>
+
+                                @foreach ($instructors as $instructor)
+                                    @if ($instructor->id == $vehicle->user_id)
+                                        <option value="{{ $instructor->id }}" selected>{{ $instructor->name }}
+                                        </option>
+                                    @else
+                                        <option value="{{ $instructor->id }}">{{ $instructor->name }}</option>
+                                    @endif
+                                @endforeach
+                            </select>
+                            @error('model')
+                                <small class="text-danger">{{ $message }}</small>
+                            @enderror
+                            <label for="instructors" class="form-label">Instructors</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <input type="submit" value="Modefier" class="btn btn-primary">
+                    </div>
+                </div>
+            </form>
+        </div>
+
+
+    </main>
+
+@endsection

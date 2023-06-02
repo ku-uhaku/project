@@ -8,7 +8,7 @@
 
         <div class="container">
             <div class="row">
-                <h1 class="mt-5 mb-4 h2  ">Gérer les payments</h1>
+                <h1 class="my-4 h2 ">Gérer les paiements</h1>
                 <x-alerts class=" mb-3 h2"></x-alerts>
             </div>
             <div class="row mb-3">
@@ -34,7 +34,7 @@
                     <h5>
                         <span>
                             <i class="fas fa-user"></i>
-                            Vous visualisez payment les utilisateurs: ({{ $payments->count() }})
+                            Vous visualisez paiement des utilisateurs: ({{ $payments->count() }})
                             <span class="text-primary"></span>
                         </span>
                     </h5>
@@ -53,10 +53,10 @@
                         <thead>
                             <tr>
                                 <th>Nom</th>
-                                <th>Amount</th>
+                                <th>Montant</th>
                                 <th>Total</th>
-                                <th>Remaining Amount</th>
-                                <th>Payment Date</th>
+                                <th>Montant restant</th>
+                                <th>Date de paiement</th>
                                 <th>actions</th>
                             </tr>
                         </thead>

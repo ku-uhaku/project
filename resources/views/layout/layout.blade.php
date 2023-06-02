@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
 <head>
     <meta charset="utf-8" />
@@ -45,6 +45,7 @@
 
     <!-- Custom Javascript File -->
     <script src="{{ asset('js/script.js') }}"></script>
+
 
     <script src="{{ asset('js/bootstrap.min.js') }}"></script>
 

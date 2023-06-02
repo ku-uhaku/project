@@ -4,6 +4,7 @@ namespace App\Models;
 
 use App\Models\Bill;
 use App\Models\Payment;
+use App\Models\Vehicle;
 use App\Models\Spending;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Contracts\Auth\Authenticatable;
@@ -60,5 +61,10 @@ class User extends Model implements Authenticatable
     public function admin()
     {
         return $this->hasMany(User::class, 'bywho');
+    }
+
+    public function vehicle()
+    {
+        return $this->hasMany(Vehicle::class);
     }
 }
