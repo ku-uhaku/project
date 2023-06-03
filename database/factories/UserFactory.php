@@ -14,18 +14,23 @@ class UserFactory extends Factory
      *
      * @return array<string, mixed>
      */
+
+
+
     public function definition(): array
     {
         return [
             'name' => $this->faker->name,
             'email' => $this->faker->unique()->safeEmail,
-            'phone' => $this->faker->regexify('[0-9]{10}'),
+            'phone' => $this->faker->phoneNumber,
             'address' => $this->faker->address,
-            'birthdate' => $this->faker->date(),
+            'birthdate' => $this->faker->date,
             'password' => bcrypt('password'),
             'type' => 'student',
             'image' => null,
-            'bywho' => '1',
+            'bywho' => $this->faker->randomElement([1, 2]),
+            'created_at' => now(),
+            'updated_at' => now(),
         ];
     }
 }
