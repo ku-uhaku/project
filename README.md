@@ -26,7 +26,7 @@ Ce projet est une application web permettant de gérer une auto-école. Elle per
 1. Cloner le projet
 
     ```sh
-     git clone https://github.com/itzAymvn/AutoEcoleLaravel.git
+     git clone https://github.com/ku-uhaku/project.git
      cd AutoEcoleLaravel
     ```
 
