@@ -78,7 +78,7 @@
                             @error('image')
                                 <small class="text-danger">{{ $message }}</small>
                             @enderror
-                            <label for="image" class="form-label">image</label>
+                            <label for="image" class="form-label">Image</label>
                         </div>
                     </div>
                     <div class="col">
@@ -93,7 +93,7 @@
                             @error('model')
                                 <small class="text-danger">{{ $message }}</small>
                             @enderror
-                            <label for="instructors" class="form-label">Instructors</label>
+                            <label for="instructors" class="form-label">Instructeur</label>
                         </div>
                     </div>
                 </div>

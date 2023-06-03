@@ -7,8 +7,8 @@
         {{-- @include('dashboard.panel') --}}
 
         <div class="container">
-            <div class="row">
-                <h1 class="mb-4 h2 ">Gérer les payments</h1>
+            <div class="row my-5">
+                <h1 class=" h2 ">Gérer les paiement</h1>
                 <x-alerts></x-alerts>
 
 
@@ -16,7 +16,7 @@
             </div>
 
             <div class="row">
-                <div class="d-flex justify-content-between  mb-4  align-items-center">
+                <div class="d-flex justify-content-between  my-3  align-items-center">
                     <h5>
                         <span>
                             <i class="fas fa-user"></i>
@@ -35,7 +35,7 @@
                 </div>
             </div>
             <div class="row">
-                <div class="d-flex justify-content-start align-items-center mt-3">
+                <div class="d-flex justify-content-start align-items-center ">
                     <div>
                         @empty($user->image)
                             <img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png"
@@ -63,7 +63,7 @@
 
 
             </div>
-            <div class="row my-5">
+            <div class="row my-3">
                 <form action="{{ route('payments.store') }}" method="POST">
                     @csrf
                     <input type="hidden" name="id" id="id" value="{{ $user->id }}">
@@ -89,7 +89,7 @@
                                 @error('date')
                                     <span class="text-danger">{{ $message }}</span>
                                 @enderror
-                                <label for="date" class="form-label">Date</label>
+                                <label for="date" class="form-label">Date de paiement</label>
                             </div>
                         </div>
                     </div>

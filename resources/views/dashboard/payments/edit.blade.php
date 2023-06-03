@@ -7,8 +7,8 @@
         {{-- @include('dashboard.panel') --}}
 
         <div class="container">
-            <div class="row">
-                <h1 class="mb-4 h2 ">Gérer les payments</h1>
+            <div class="row my-3 ">
+                <h1 class="h2 ">Gérer les paiements</h1>
                 <x-alerts></x-alerts>
 
 
@@ -89,7 +89,7 @@
                                 @error('date')
                                     <span class="text-danger">{{ $message }}</span>
                                 @enderror
-                                <label for="date" class="form-label">Date</label>
+                                <label for="date" class="form-label">Date de paiement</label>
                             </div>
                         </div>
                     </div>
@@ -106,8 +106,3 @@
     </main>
 
 @endsection
-
-
-
-
-s

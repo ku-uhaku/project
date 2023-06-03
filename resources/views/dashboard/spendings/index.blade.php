@@ -8,7 +8,7 @@
 
         <div class="container">
             <div class="row">
-                <h1 class="mb-4 h2 ">Gérer les spendings</h1>
+                <h1 class="mb-4 h2 ">Gérer les Salaires des travailleurs</h1>
                 <x-alerts></x-alerts>
             </div>
             <div class="row mb-3">
@@ -34,7 +34,7 @@
                     <h5>
                         <span>
                             <i class="fas fa-user"></i>
-                            Vous visualisez spending les utilisateurs: ( {{ $spendings->count() }} )
+                            Vous visualisez Salaires des travailleurs: ( {{ $spendings->count() }} )
                             <span class="text-primary"></span>
                         </span>
                     </h5>
@@ -56,7 +56,7 @@
                                 <th>Nom</th>
                                 <th>Titre</th>
                                 <th>Montant</th>
-                                <th>Date</th>
+                                <th>Date de paiement</th>
                                 <th>Actions</th>
                             </tr>
                         </thead>
@@ -85,7 +85,7 @@
                 @else
                     <div class="alert alert-info">
                         <i class="fas fa-info-circle"></i>
-                        Aucun payment n'a été trouvé.
+                        Aucun Salaires des travailleurs n'a été trouvé.
                     </div>
                 @endif
             </div>

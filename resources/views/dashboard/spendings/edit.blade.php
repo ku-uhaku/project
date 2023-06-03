@@ -8,7 +8,7 @@
 
         <div class="container">
             <div class="row">
-                <h1 class="mb-1 h2">Gérer les Spendings</h1>
+                <h1 class="mb-1 h2">Gérer les Salaires des travailleurs</h1>
 
             </div>
             <x-alerts></x-alerts>
@@ -18,7 +18,7 @@
                     <h5>
                         <span>
                             <i class="fas fa-user"></i>
-                            Modifier Spendings de {{ $user->name }}:
+                            Modifier le Salaire de {{ $user->name }}:
                             <span class="text-primary"></span>
                         </span>
                     </h5>
@@ -73,7 +73,7 @@
                                 @error('title')
                                     <small class="text-danger">{{ $message }}</small>
                                 @enderror
-                                <label for="title" class="form-label">Titre</label>
+                                <label for="title" class="form-label">Titre de salaire</label>
                             </div>
                         </div>
 
@@ -87,7 +87,7 @@
                                 @error('amount_spent')
                                     <span class="text-danger">{{ $message }}</span>
                                 @enderror
-                                <label for="amount_spent" class="form-label">Amount</label>
+                                <label for="amount_spent" class="form-label">Montant</label>
                             </div>
                         </div>
                     </div>

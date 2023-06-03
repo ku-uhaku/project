@@ -40,8 +40,8 @@
                                 <th>Montant</th>
                                 <th>Titre</th>
                                 <th>Description</th>
-                                <th>Date</th>
-                                <th>by who</th>
+                                <th>Date de paiement</th>
+                                <th>Par qui</th>
                                 <th>Actions</th>
                             </tr>
                         </thead>

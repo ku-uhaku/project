@@ -18,7 +18,7 @@
                     <h5>
                         <span>
                             <i class="fas fa-user"></i>
-                            Gérer payment :
+                            Gérer les vehicles :
                             <span class="text-primary"></span>
                         </span>
 
@@ -41,7 +41,7 @@
                             <th>Matricule</th>
                             <th>Titre</th>
                             <th>Modèle</th>
-                            <th>Instrector</th>
+                            <th>Instructeur</th>
                             <th>Image</th>
                             <th>Actions</th>
                         </tr>

@@ -78,13 +78,13 @@
                             @error('image')
                                 <small class="text-danger">{{ $message }}</small>
                             @enderror
-                            <label for="image" class="form-label">image</label>
+                            <label for="image" class="form-label">Image</label>
                         </div>
                     </div>
                     <div class="col">
                         <div class="form-outline">
                             <select name="instructors" id="instructors" class="form-control">
-                                <option value="">Instructor</option>
+                                <option value="">Instructeur</option>
 
                                 @foreach ($instructors as $instructor)
                                     @if ($instructor->id == $vehicle->user_id)
@@ -98,7 +98,7 @@
                             @error('model')
                                 <small class="text-danger">{{ $message }}</small>
                             @enderror
-                            <label for="instructors" class="form-label">Instructors</label>
+                            <label for="instructors" class="form-label">Instructeur</label>
                         </div>
                     </div>
                 </div>

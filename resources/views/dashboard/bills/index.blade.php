@@ -8,7 +8,7 @@
 
         <div class="container">
             <div class="row">
-                <h1 class="mb-4 h2 ">Gérer les bills</h1>
+                <h1 class="mb-4 h2 ">Gérer les factures</h1>
                 <x-alerts></x-alerts>
             </div>
             <div class="row mb-3">
@@ -34,7 +34,7 @@
                     <h5>
                         <span>
                             <i class="fas fa-user"></i>
-                            Vous visualisez bills: ({{ $bills->count() }})
+                            Vous visualisez factures: ({{ $bills->count() }})
                             <span class="text-primary"></span>
                         </span>
                     </h5>
@@ -54,11 +54,10 @@
                             <tr>
                                 <th>#</th>
                                 <th>Titre</th>
-                                <th>Amount</th>
+                                <th>Montant</th>
                                 <th>description</th>
-                                <th>by who</th>
+                                <th>Par qui</th>
                                 <th>Crée on</th>
-
                                 <th>actions</th>
                             </tr>
                         </thead>
