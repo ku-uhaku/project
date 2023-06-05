@@ -8,7 +8,7 @@
 
         <div class="container">
             <div class="row">
-                <h1 class="mb-4 h2 ">Gérer les bills</h1>
+                <h1 class="mb-4 h2 ">Gérer les factures</h1>
                 <x-alerts></x-alerts>
 
 
@@ -16,7 +16,7 @@
                     <div class="d-flex justify-content-between  mb-4  align-items-center">
                         <h5>
                             <span>
-                                Modefier un bill:
+                                Modefier un factures:
                                 <span class="text-primary"></span>
                             </span>
                         </h5>
@@ -51,7 +51,7 @@
                                     @error('amoun')
                                         <small class="text-danger">{{ $message }}</small>
                                     @enderror
-                                    <label for="amount" class="form-label">Amount</label>
+                                    <label for="amount" class="form-label">Montants</label>
                                 </div>
                             </div>
 

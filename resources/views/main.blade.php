@@ -218,7 +218,7 @@
                     contacter
                 </h1>
 
-                <form action="" method="post">
+                <form action="{{ route('contact') }}" method="post">
                     @csrf
                     <div class="row g-3">
                         <div class="col-md-6">

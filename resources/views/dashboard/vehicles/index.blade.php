@@ -6,7 +6,7 @@
     <main class="d-flex justify-content-between flex-row">
         <div class="container">
             <div class="row">
-                <h1 class="mb-4 h2 ">Gérer les payments</h1>
+                <h1 class="mb-4 h2 ">Gérer les vehicle</h1>
                 <x-alerts></x-alerts>
 
 

@@ -9,7 +9,9 @@ use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\Crud\BillController;
 use App\Http\Controllers\Crud\ExamController;
 use App\Http\Controllers\Crud\UserController;
+use App\Http\Controllers\PDFPaymentController;
 use App\Http\Controllers\SuperAdminController;
+use App\Http\Controllers\ContactMailController;
 use App\Http\Controllers\Auth\ProfileController;
 use App\Http\Controllers\Crud\PaymentController;
 use App\Http\Controllers\Crud\VehicleController;
@@ -43,6 +45,7 @@ Route::prefix('dashboard')->middleware(['auth', 'admin'])->group(function () {
     Route::resource('spendings', SpendingController::class);
     Route::get('/payments/create/{user}', [NewPayment::class, 'create'])->name('payment.create');
     Route::post('/payments/store/{id}', [NewPayment::class, 'store'])->name('payment.store');
+    Route::get('generate-pdf/{user}', [PDFPaymentController::class, 'generatePaymentPDF'])->name('payment.pdf');
     Route::resource('exams', ExamController::class);
     Route::resource('vehicles', VehicleController::class);
     Route::post('/exams/addStudent', [ExamController::class, 'addStudent'])->name('exams.addStudent');
@@ -56,3 +59,5 @@ Route::get('superadmin', [SuperAdminController::class, 'filter'])->name('superad
 Route::get('superadmin/profits', [SuperAdminController::class, 'profits'])->name('superadmin.profits')->middleware(['auth', 'admin']);
 Route::get('superadmin/profits', [SuperAdminController::class, 'filterProfits'])->name('superadmin.filterProfits')->middleware(['auth', 'admin']);
 Route::get('superadmin/profits/details', [SuperAdminController::class, 'profitsDetails'])->name('superadmin.profitsDetails')->middleware(['auth', 'admin']);
+
+Route::post('/contact', [ContactMailController::class, 'index'])->name('contact');

@@ -100,18 +100,26 @@
                         </div>
                         <div class="">
                             <a class="btn btn-info"
-                                href="{{ route('payments.edit', ['payment' => $user->payments->first()->id, 'user' => $user->id]) }}">
+                                href="{{ route('payment.pdf', ['payment' => $user->payments->first()->id, 'user' => $user->id]) }}">
                                 <i class="fa-solid fa-circle-plus me-2"></i> Modifier ce paiement
+                            </a>
+                        </div>
+                        <div class="">
+                            <a class="btn btn-primary" href="{{ route('payment.pdf', ['user' => $user->id]) }}">
+                                <i class="fa-solid fa-circle-plus me-2"></i> Gerée un PDF
                             </a>
                         </div>
                     </div>
                 @else
                     <p class="mt-3 ">No Payment for {{ $user->name }}</p>
 
-                    <div class="row">
-                        <a class="btn btn-primary" href="{{ route('payments.create', ['user' => $user->id]) }}">
-                            <i class="fa-solid fa-circle-plus me-2"></i> Créer un paiement
-                        </a>
+                    <div class="d-flex gap-3">
+                        <div class="">
+                            <a class="btn btn-primary" href="{{ route('payments.create', ['user' => $user->id]) }}">
+                                <i class="fa-solid fa-circle-plus me-2"></i> Créer un paiement
+                            </a>
+                        </div>
+
                     </div>
                 @endif
             </div>
