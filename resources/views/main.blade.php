@@ -206,7 +206,189 @@
         </div>
     </section>
 
-    <!-- Contact section -->
+    <div class="container-xxl py-6">
+        <div class="container">
+            <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 500px;">
+                <h6 class="text-primary text-uppercase mb-2">RENCONTRER L'ÉQUIPE</h6>
+                <h1 class="display-6 mb-4">Nous avons une grande expérience de conduite</h1>
+            </div>
+            <div class="row g-0 team-items">
+                <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+                    <div class="team-item position-relative">
+                        <div class="position-relative">
+                            <img class="img-fluid" src="{{ asset('images/team-1.jpg') }}" alt="">
+                            <div class="team-social text-center">
+                                <a class="btn btn-square btn-outline-primary border-2 m-1" href=""><i
+                                        class="fab fa-facebook-f"></i></a>
+                                <a class="btn btn-square btn-outline-primary border-2 m-1" href=""><i
+                                        class="fab fa-twitter"></i></a>
+                                <a class="btn btn-square btn-outline-primary border-2 m-1" href=""><i
+                                        class="fab fa-instagram"></i></a>
+                            </div>
+                        </div>
+                        <div class="bg-light text-center p-4">
+                            <h5 class="mt-2">Full Name</h5>
+                            <span>Trainer</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
+                    <div class="team-item position-relative">
+                        <div class="position-relative">
+                            <img class="img-fluid" src="{{ asset('images/team-2.jpg') }}" alt="">
+                            <div class="team-social text-center">
+                                <a class="btn btn-square btn-outline-primary border-2 m-1" href=""><i
+                                        class="fab fa-facebook-f"></i></a>
+                                <a class="btn btn-square btn-outline-primary border-2 m-1" href=""><i
+                                        class="fab fa-twitter"></i></a>
+                                <a class="btn btn-square btn-outline-primary border-2 m-1" href=""><i
+                                        class="fab fa-instagram"></i></a>
+                            </div>
+                        </div>
+                        <div class="bg-light text-center p-4">
+                            <h5 class="mt-2">Full Name</h5>
+                            <span>Trainer</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
+                    <div class="team-item position-relative">
+                        <div class="position-relative">
+                            <img class="img-fluid" src="{{ asset('images/team-3.jpg') }}" alt="">
+                            <div class="team-social text-center">
+                                <a class="btn btn-square btn-outline-primary border-2 m-1" href=""><i
+                                        class="fab fa-facebook-f"></i></a>
+                                <a class="btn btn-square btn-outline-primary border-2 m-1" href=""><i
+                                        class="fab fa-twitter"></i></a>
+                                <a class="btn btn-square btn-outline-primary border-2 m-1" href=""><i
+                                        class="fab fa-instagram"></i></a>
+                            </div>
+                        </div>
+                        <div class="bg-light text-center p-4">
+                            <h5 class="mt-2">Full Name</h5>
+                            <span>Trainer</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.7s">
+                    <div class="team-item position-relative">
+                        <div class="position-relative">
+                            <img class="img-fluid" src="{{ asset('images/team-4.jpg') }}" alt="">
+                            <div class="team-social text-center">
+                                <a class="btn btn-square btn-outline-primary border-2 m-1" href=""><i
+                                        class="fab fa-facebook-f"></i></a>
+                                <a class="btn btn-square btn-outline-primary border-2 m-1" href=""><i
+                                        class="fab fa-twitter"></i></a>
+                                <a class="btn btn-square btn-outline-primary border-2 m-1" href=""><i
+                                        class="fab fa-instagram"></i></a>
+                            </div>
+                        </div>
+                        <div class="bg-light text-center p-4">
+                            <h5 class="mt-2">Full Name</h5>
+                            <span>Trainer</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <!-- Testimonials section -->
+
+    <section class="container-xxl py-6">
+        <div class="container">
+            <div class="row g-5">
+                <div class="col-lg-6">
+                    <h6 class="text-primary text-uppercase mb-2">
+                        inscription
+                    </h6>
+                    <h1 class="display-6 mb-4">
+                        Documents administratifs à fournir
+                    </h1>
+
+                    <div>
+                        <div class=" d-flex flex-row">
+                            <ul>
+                                <li> Copie carte d’identité nationale ou passeport </li>
+                                <li> Timbre fiscal </li>
+                                <li> Certificat médical de moins de 3 mois réalisé par un médecin agrée .</li>
+                                <li> 2 photos d’identités récentes et conformes aux normes en vigueur.</li>
+                                <li> Demande de passage d’examen du permis de conduire.</li>
+                            </ul>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="position-relative overflow-hidden pe-5 pt-5 h-100" style="min-height: 400px">
+                        <img class="position-absolute w-100 h-100" src="{{ asset('images/carousel-1.jpg') }}"
+                            alt="" style="object-fit: cover" />
+                        <img class="position-absolute top-0 end-0 bg-white ps-3 pb-3"
+                            src="{{ asset('images/carousel-2.jpg') }}" alt=""
+                            style="width: 200px; height: 200px  object-fit: cover ;" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="contact">
+        <section class="container-xxl py-6" id="contact-section">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-8">
+                        <div class="text-center">
+                            <h2 class="text-light text-uppercase mb-2">Contactez-nous</h2>
+                            <p class="lead">Nous sommes à votre écoute, n'hésitez pas à nous contacter</p>
+                        </div>
+
+                        <form action="{{ route('contact') }}" method="post">
+                            @csrf
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <div class="form-floating">
+                                        <input type="text" class="form-control" id="name"
+                                            placeholder="Votre nom" name="name" required>
+                                        <label for="name">Votre nom</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-floating">
+                                        <input type="email" class="form-control" id="email"
+                                            placeholder="Votre email" name="email" required>
+                                        <label for="email">Votre email</label>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="form-floating">
+                                        <input type="text" class="form-control" id="subject" placeholder="Sujet"
+                                            name="subject" required>
+                                        <label for="subject">Sujet</label>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="form-floating">
+                                        <textarea class="form-control" placeholder="Laissez votre message ici" id="message" style="height: 150px"
+                                            name="message" required></textarea>
+                                        <label for="message">Votre message</label>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <button class="btn btn-light py-3 px-5" type="submit">Envoyer</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+
+    {{-- <!-- Contact section -->
     <section class="container-xxl py-6" id="contact-section">
         <div class="container">
             <div class="col-lg-6">
@@ -258,5 +440,55 @@
                 </form>
             </div>
         </div>
-    </section>
+    </section> --}}
+
+    <div class="container-fluid bg-dark text-light footer my-6 mb-0 py-6 wow fadeIn" data-wow-delay="0.1s">
+        <div class="container">
+            <div class="row g-5">
+                <div class="col-lg-3 col-md-6">
+                    <h4 class="text-white mb-4">Get In Touch</h4>
+                    <h2 class="text-primary mb-4"><i class="fa fa-car text-white me-2"></i>Drivin</h2>
+                    <p class="mb-2"><i class="fa fa-map-marker-alt me-3"></i>123 Street, New York, USA</p>
+                    <p class="mb-2"><i class="fa fa-phone-alt me-3"></i>+012 345 67890</p>
+                    <p class="mb-2"><i class="fa fa-envelope me-3"></i>info@example.com</p>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <h4 class="text-light mb-4">Quick Links</h4>
+                    <a class="btn btn-link" href="">About Us</a>
+                    <a class="btn btn-link" href="">Contact Us</a>
+                    <a class="btn btn-link" href="">Our Services</a>
+                    <a class="btn btn-link" href="">Terms & Condition</a>
+                    <a class="btn btn-link" href="">Support</a>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <h4 class="text-light mb-4">Popular Links</h4>
+                    <a class="btn btn-link" href="">About Us</a>
+                    <a class="btn btn-link" href="">Contact Us</a>
+                    <a class="btn btn-link" href="">Our Services</a>
+                    <a class="btn btn-link" href="">Terms & Condition</a>
+                    <a class="btn btn-link" href="">Support</a>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <h4 class="text-light mb-4">Newsletter</h4>
+                    <form action="">
+                        <div class="input-group">
+                            <input type="text" class="form-control p-3 border-0" placeholder="Your Email Address">
+                            <button class="btn btn-primary">Sign Up</button>
+                        </div>
+                    </form>
+                    <h6 class="text-white mt-4 mb-3">Follow Us</h6>
+                    <div class="d-flex pt-2">
+                        <a class="btn btn-square btn-outline-light me-1" href=""><i
+                                class="fab fa-twitter"></i></a>
+                        <a class="btn btn-square btn-outline-light me-1" href=""><i
+                                class="fab fa-facebook-f"></i></a>
+                        <a class="btn btn-square btn-outline-light me-1" href=""><i
+                                class="fab fa-youtube"></i></a>
+                        <a class="btn btn-square btn-outline-light me-0" href=""><i
+                                class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 @endsection
