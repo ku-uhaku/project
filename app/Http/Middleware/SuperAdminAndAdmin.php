@@ -18,7 +18,7 @@ class SuperAdminAndAdmin
     {
         if (Auth::user()->type != 'admin' && Auth::user()->type != 'superAdmin') {
 
-            abort(403, "Vous n'êtes pas autorisé à accéder à cette page");
+            return redirect()->route('errors.403');
         }
         return $next($request);
     }

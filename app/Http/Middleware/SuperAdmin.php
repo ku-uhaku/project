@@ -17,7 +17,7 @@ class SuperAdmin
     public function handle(Request $request, Closure $next): Response
     {
         if (Auth::user()->type != 'superAdmin') {
-            abort(403, 'You are not allowed to access this page');
+            return redirect()->route('errors.403');
         }
         return $next($request);
     }

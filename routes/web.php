@@ -5,6 +5,7 @@
 use App\Http\Controllers\NewPayment;
 use Illuminate\Support\Facades\Route;
 
+use App\Http\Controllers\ErrorsController;
 use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\Crud\BillController;
 use App\Http\Controllers\Crud\ExamController;
@@ -64,3 +65,6 @@ Route::prefix('superadmin')->middleware(['auth', 'superadmin'])->group(function 
 
 
 Route::post('/contact', [ContactMailController::class, 'index'])->name('contact');
+
+
+Route::fallback([ErrorsController::class, 'error404']);
