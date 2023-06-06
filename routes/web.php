@@ -38,7 +38,7 @@ Route::get('/profile', [ProfileController::class, 'show'])->name('profile');
 Route::post('/profile', [ProfileController::class, 'update'])->name('update-profile');
 
 // Dashboard
-Route::prefix('dashboard')->middleware(['auth', 'admin'])->group(function () {
+Route::prefix('dashboard')->middleware(['auth', 'SuperAdminAndAdmin'])->group(function () {
     Route::view('/', 'dashboard.index')->name('dashboard');
     Route::resource('users', UserController::class);
     Route::resource('payments', PaymentController::class);
@@ -54,10 +54,13 @@ Route::prefix('dashboard')->middleware(['auth', 'admin'])->group(function () {
     Route::resource('bills', BillController::class);
 });
 
-Route::get('superadmin', [SuperAdminController::class, 'index'])->name('superadmin.index')->middleware(['auth', 'admin']);
-Route::get('superadmin', [SuperAdminController::class, 'filter'])->name('superadmin.filter')->middleware(['auth', 'admin']);
-Route::get('superadmin/profits', [SuperAdminController::class, 'profits'])->name('superadmin.profits')->middleware(['auth', 'admin']);
-Route::get('superadmin/profits', [SuperAdminController::class, 'filterProfits'])->name('superadmin.filterProfits')->middleware(['auth', 'admin']);
-Route::get('superadmin/profits/details', [SuperAdminController::class, 'profitsDetails'])->name('superadmin.profitsDetails')->middleware(['auth', 'admin']);
+Route::prefix('superadmin')->middleware(['auth', 'superadmin'])->group(function () {
+    Route::get('/', [SuperAdminController::class, 'index'])->name('superadmin.index');
+    Route::get('/', [SuperAdminController::class, 'filter'])->name('superadmin.filter');
+    Route::get('/profits', [SuperAdminController::class, 'profits'])->name('superadmin.profits');
+    Route::get('/profits', [SuperAdminController::class, 'filterProfits'])->name('superadmin.filterProfits');
+    Route::get('/profits/details', [SuperAdminController::class, 'profitsDetails'])->name('superadmin.profitsDetails');
+});
+
 
 Route::post('/contact', [ContactMailController::class, 'index'])->name('contact');

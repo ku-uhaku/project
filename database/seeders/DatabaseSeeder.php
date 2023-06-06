@@ -27,7 +27,21 @@ class DatabaseSeeder extends Seeder
     public function run(): void
     {
 
+        User::create([
+            'name' => 'superAdmin',
+            'email' => 'superAdmin@mail.com',
+            'phone' => '0123456789',
+            'address' => 'Rue de la Paix, 1000 Bruxelles',
+            'password' => bcrypt('password'),
+            'type' => 'superAdmin',
+            'created_at' => now(),
+            'updated_at' => now(),
+
+        ]);
+
         // 1 admin
+
+
         User::create([
             'name' => 'admin1',
             'email' => 'admin@mail.com',
@@ -74,6 +88,18 @@ class DatabaseSeeder extends Seeder
             'password' => bcrypt('password'),
             'type' => 'instructor',
             'bywho' => 2,
+            'created_at' => now(),
+            'updated_at' => now(),
+
+        ]);
+
+        User::create([
+            'name' => 'student',
+            'email' => 'student@mail.com',
+            'phone' => '0123456789',
+            'address' => 'Rue de la Paix, 1000 Bruxelles',
+            'password' => bcrypt('password'),
+            'type' => 'student',
             'created_at' => now(),
             'updated_at' => now(),
 

@@ -23,7 +23,8 @@
                 <span>Contact</span>
             </a>
             @if (request()->is('dashboard*'))
-                @if ((Auth::user() && Auth::user()->type == 'admin') || Auth::user()->type == 'superadmin')
+
+                @if ((Auth::user() && Auth::user()->type == 'admin') || (Auth::user() && Auth::user()->type == 'superAdmin'))
                     <div class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle d-flex align-items-center gap-2" id="dashboardDropdown"
                             role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -105,7 +106,7 @@
                         <li>
                             <hr class="dropdown-divider">
                         </li>
-                        @if (Auth::user()->type === 'admin' || Auth::user()->type === 'superadmin')
+                        @if (Auth::user()->type === 'admin' || Auth::user()->type === 'superAdmin')
                             <li>
                                 <a class="dropdown-item" href="{{ route('dashboard') }}">
                                     <i class="fas fa-user-cog"></i>

@@ -24,7 +24,6 @@
     <table class="table table-striped table-responcive">
         <thead>
             <tr>
-                <th scope="col">#</th>
                 <th scope="col">Montant</th>
                 <th scope="col">Total</th>
                 <th scope="col">Montant restant</th>
@@ -36,7 +35,7 @@
         <tbody>
             @foreach ($payments as $payment)
                 <tr>
-                    <th>{{ $payment->id }}</th>
+
                     <td>{{ $payment->amount_paid }}</td>
                     <td>{{ $payment->goal_amount }}</td>
                     <td>{{ $payment->remaining_amount }}</td>
@@ -46,9 +45,9 @@
         </tbody>
     </table>
     </div>
-    <div class="d-flex justifuy-content-end">
+    {{-- <div class="d-flex justifuy-content-end">
         signature : <span class="text-primary">{{ $user->name }}</span>
-    </div>
+    </div> --}}
 
 </body>
 

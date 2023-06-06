@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('address')->nullable();
             $table->date('birthdate')->nullable();
             $table->string('password');
-            $table->enum('type', ['student', 'instructor', 'admin'])->default('student');
+            $table->enum('type', ['student', 'instructor', 'admin', 'superAdmin'])->default('student');
             $table->string('image')->nullable();
             $table->string('bywho');
             $table->timestamps();

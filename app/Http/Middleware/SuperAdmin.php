@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Symfony\Component\HttpFoundation\Response;
 
-class Admin
+class SuperAdmin
 {
     /**
      * Handle an incoming request.
@@ -16,7 +16,7 @@ class Admin
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if (Auth::user()->type != 'admin') {
+        if (Auth::user()->type != 'superAdmin') {
             abort(403, 'You are not allowed to access this page');
         }
         return $next($request);
