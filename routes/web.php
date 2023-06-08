@@ -15,6 +15,7 @@ use App\Http\Controllers\SuperAdminController;
 use App\Http\Controllers\ContactMailController;
 use App\Http\Controllers\Auth\ProfileController;
 use App\Http\Controllers\Crud\PaymentController;
+use App\Http\Controllers\Crud\SessionController;
 use App\Http\Controllers\Crud\VehicleController;
 use App\Http\Controllers\Crud\SpendingController;
 
@@ -48,6 +49,11 @@ Route::prefix('dashboard')->middleware(['auth', 'SuperAdminAndAdmin'])->group(fu
     Route::post('/payments/store/{id}', [NewPayment::class, 'store'])->name('payment.store');
     Route::get('generate-pdf/{user}', [PDFPaymentController::class, 'generatePaymentPDF'])->name('payment.pdf');
     Route::resource('exams', ExamController::class);
+
+    Route::resource('sessions', SessionController::class);
+    Route::post('/sessions/add-student', [SessionController::class, 'addStudent'])->name('sessions.addStudent');
+    Route::post('/sessions/update-isattended', [SessionController::class, 'updateIsAttended'])->name('sessions.updateIsAttended');
+    Route::post('/sessions/remove-student', [SessionController::class, 'removeStudent'])->name('sessions.removeStudent');
     Route::resource('vehicles', VehicleController::class);
     Route::post('/exams/addStudent', [ExamController::class, 'addStudent'])->name('exams.addStudent');
     Route::post('/exams/updateResult', [ExamController::class, 'updateResult'])->name('exams.updateResult');

@@ -19,7 +19,7 @@ class PDFPaymentController extends Controller
 
         $data = [
             'title' => 'E_AutoEcole',
-            'date' => date('m/d/Y'),
+            'date' => date('d/m/Y'),
             'payments' => $payments,
             'user' => $user,
         ];

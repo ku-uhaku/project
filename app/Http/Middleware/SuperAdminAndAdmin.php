@@ -18,7 +18,7 @@ class SuperAdminAndAdmin
     {
         if (Auth::user()->type != 'admin' && Auth::user()->type != 'superAdmin') {
 
-            return redirect()->route('errors.403');
+            return view('errors.403');
         }
         return $next($request);
     }
