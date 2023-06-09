@@ -41,13 +41,13 @@
                     <div class="d-flex justifuy-content-start align-items-center">
                         <div class="mb-1">
                             <label for="image" class="form-label">
-                                @if ($user->image)
-                                    <img src="{{ asset('storage/profiles/' . $user->image) }}" alt="Profile Image"
-                                        width="100" height="100" class="mb-3 rounded-circle">
+                                @empty($user->image)
+                                    <img src="{{ asset('images/default-user.png') }}" alt="Image" width="100"
+                                        height="100" class="me-2 rounded-circle">
                                 @else
-                                    <img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png"
-                                        alt="Profile Image" width="100" height="100" class="mb-3 rounded-circle">
-                                @endif
+                                    <img src="{{ asset('storage/profiles/' . $user->image) }}" alt="Image" width="100"
+                                        height="100" class="me-2 rounded-circle">
+                                @endempty
                             </label>
                             <input class="form-control d-none" type="file" id="image" name="image">
                             @error('image')

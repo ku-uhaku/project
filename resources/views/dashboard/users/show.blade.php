@@ -24,11 +24,11 @@
                 <div class="d-flex justify-content-start align-items-center mt-3">
                     <div>
                         @empty($user->image)
-                            <img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png"
-                                alt="Image" width="100" height="100" class="rounded-circle">
+                            <img src="{{ asset('images/default-user.png') }}" alt="Image" width="100" height="100"
+                                class="me-2 rounded-circle">
                         @else
                             <img src="{{ asset('storage/profiles/' . $user->image) }}" alt="Image" width="100"
-                                height="10">
+                                height="100" class="me-2 rounded-circle">
                         @endempty
                     </div>
                     <div class="ms-3">

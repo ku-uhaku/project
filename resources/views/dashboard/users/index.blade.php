@@ -60,14 +60,14 @@
                             @foreach ($users as $user)
                                 <tr>
                                     <th scope="row">{{ $user->id }}</th>
+
                                     @empty($user->image)
-                                        <td><img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png"
-                                                alt="Image" width="50" height="50">
-                                        </td>
+                                        <td><img src="{{ asset('images/default-user.png') }}" alt="Image" width="50"
+                                                height="50" class="me-2 rounded-circle"></td>
                                     @else
                                         <td><img src="{{ asset('storage/profiles/' . $user->image) }}" alt="Image"
-                                                width="50" height="50">
-                                        @endempty
+                                                width="50" height="50" class="me-2 rounded-circle"></td>
+                                    @endempty
                                     <td class="align-middle">
                                         <a href="{{ route('users.show', $user->id) }}">{{ $user->name }}</a>
                                     </td>
