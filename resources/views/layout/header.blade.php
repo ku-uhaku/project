@@ -22,6 +22,34 @@
                 <i class="fas fa-phone"></i>
                 <span>Contact</span>
             </a>
+
+            @if (Auth::user() && Auth::user()->type == 'superAdmin')
+                <div class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle d-flex align-items-center gap-2" id="dashboardDropdown"
+                        role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <i class="fa-solid fa-gear"></i>
+                        <span>Super Admin</span>
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu w-100 border-0 shadow" aria-labelledby="userDropdown">
+
+                        <li>
+                            <a class="dropdown-item" href="{{ route('superadmin.filter') }}">
+                                <i class="fas fa-users"></i>
+                                <span>Utilisateurs</span>
+                            </a>
+                        </li>
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="{{ route('superadmin.filterProfits') }}">
+                                <i class="fas fa-users"></i>
+                                <span>Pofits</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            @endif
             @if (request()->is('dashboard*'))
 
                 @if ((Auth::user() && Auth::user()->type == 'admin') || (Auth::user() && Auth::user()->type == 'superAdmin'))
@@ -33,6 +61,7 @@
                         </a>
 
                         <ul class="dropdown-menu dropdown-menu w-100 border-0 shadow" aria-labelledby="userDropdown">
+
                             <li>
                                 <a class="dropdown-item" href="{{ route('users.index') }}">
                                     <i class="fas fa-users"></i>
@@ -73,6 +102,15 @@
                                 <a class="dropdown-item" href="{{ route('bills.index') }}">
                                     <i class="fas fa-money-bill-wave"></i>
                                     <span>Bills</span>
+                                </a>
+                            </li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="{{ route('sessions.index') }}">
+                                    <i class="fas fa-clipboard-list"></i>
+                                    <span>Sessions</span>
                                 </a>
                             </li>
                         </ul>

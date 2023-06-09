@@ -5,7 +5,7 @@
 @section('content')
     <main class="d-flex justify-content-between flex-row">
         <div class="container">
-            <div class="row">
+            <div class="row my-3">
                 <h1 class="mb-4 h2 ">Gérer les vehicle</h1>
                 <x-alerts></x-alerts>
 
@@ -42,7 +42,7 @@
                             <th>Titre</th>
                             <th>Modèle</th>
                             <th>Instructeur</th>
-                            <th>Image</th>
+
                             <th>Actions</th>
                         </tr>
                     </thead>
@@ -54,7 +54,6 @@
                                 <td>{{ $vehicle->title }}</td>
                                 <td>{{ $vehicle->model }}</td>
                                 <td>{{ $vehicle->user->name }}</td>
-                                <td>{{ $vehicle->image }}</td>
                                 <td>
 
                                     <a href="{{ route('vehicles.show', $vehicle->id) }}" class=" text-primary">
@@ -75,6 +74,15 @@
                             </tr>
                         @endforeach
                 </table>
+
+                <div class="row my-3">
+                    <div class="col-3">
+                        <a href="{{ route('vehicles.create') }}" class="btn btn-primary">
+                            <i class="fa-solid fa-circle-plus"></i>
+                            Ajouter un vehicle
+                        </a>
+                    </div>
+                </div>
             </div>
         </div>
     </main>

@@ -114,21 +114,21 @@
 
             <div class="row">
                 <div class="col-sm-4 shadow-sm  ml-2 p-3 mb-5 bg-body rounded">
-                    <h3>total payment</h3>
+                    <h3>paiement total</h3>
                     <h3 class="counter" data-end="{{ $totalPayment }}"></h3>
                 </div>
                 <div class="col-sm-4 shadow-sm p-3 ml-2 mb-5 bg-body rounded">
-                    <h3>total Spending</h3>
+                    <h3>Dépenses totales</h3>
                     <h3 class="counter" data-end="{{ $totalSpending }}"></h3>
                 </div>
                 <div class="col-sm-4 shadow-sm p-3 mb-5 bg-body rounded">
-                    <h3>total bill</h3>
+                    <h3>Facture totale</h3>
                     <h4 class="counter" data-end="{{ $totalBills }}"></h4>
                 </div>
             </div>
             <div class="row">
                 <div class="shadow px-3 py-5 mb-5 bg-body rounded ">
-                    <h3>total Profits you make </h3>
+                    <h3>Bénéfices totaux que vous faites : </h3>
 
                     <h2 class="counter {{ $total > 0 ? 'text-info' : 'text-danger' }}" data-end="{{ $total }}">
                     </h2>

@@ -5,7 +5,7 @@
 @section('content')
     <main class="d-flex justify-content-between flex-row">
         <div class="container">
-            <div class="row">
+            <div class="row my-3">
                 <h1 class="my-4 h2 ">Gérer les Vehicles:</h1>
                 <x-alerts></x-alerts>
 
@@ -33,7 +33,7 @@
                 </div>
             </div>
 
-            <form action="{{ route('vehicles.store') }}" method="post">
+            <form action="{{ route('vehicles.store') }}" method="post" enctype="multipart/form-data">
                 @csrf
                 <div class="row">
                     <div class="col">

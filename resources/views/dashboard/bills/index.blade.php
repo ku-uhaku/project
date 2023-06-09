@@ -72,10 +72,18 @@
                                     <td>{{ $bill->user->name }}</td>
                                     <td>{{ substr($bill->created_at, 0, 10) }}</td>
                                     <td>
-                                        <div class="d-flex justify-content-between">
+                                        <div class="align-middle d-flex justify-content-around align-items-center">
                                             <a href="{{ route('bills.edit', $bill->id) }}">
                                                 <i class="text-primary fas fa-edit fa-1x me-1"></i>
                                             </a>
+
+                                            <form action="{{ route('bills.destroy', $bill->id) }}" method="POST">
+                                                @csrf
+                                                @method('DELETE')
+                                                <button type="submit" class="btn btn-link">
+                                                    <i class="text-primary fas fa-trash-alt fa-1x"></i>
+                                                </button>
+                                            </form>
                                         </div>
                                     </td>
                                 </tr>

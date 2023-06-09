@@ -60,7 +60,26 @@
                         </td>
                         <td>{{ $vehicle->user->name }}</td>
                     </tr>
+                    <tr>
+                        <td>
+                            <strong>
+                                <i class="fas fa-envelope"></i>
+                                vehicle:
+                            </strong>
+                        </td>
+                        <td>
 
+                            @empty($vehicle->image)
+                                <img src="{{ asset('images/default_vehicle.png') }}" alt="Image" width="50"
+                                    height="50" class="me-2 rounded-circle">
+                            @else
+                                <img src="{{ asset('storage/vehicles/' . $vehicle->image) }}" alt="Image" width="50"
+                                    height="50" class="me-2 rounded-circle">
+                            @endempty
+
+                        </td>
+
+                    </tr>
 
 
                 </tbody>

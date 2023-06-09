@@ -94,8 +94,12 @@ class BillController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Bill $bill)
     {
-        //
+        if ($bill->delete()) {
+            return redirect()->route('bills.index')->with('success', 'Bill deleted successfully');
+        } else {
+            return redirect()->route('bills.index')->with('error', 'Bill deletion failed');
+        }
     }
 }

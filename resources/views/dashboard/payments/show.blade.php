@@ -75,6 +75,7 @@
                                 <th scope="col">Montant restant</th>
                                 <th scope="col">Date de paiement</th>
                                 <th scope="col">Par qui</th>
+                                <th scope="col">Action</th>
 
                             </tr>
                         </thead>
@@ -87,6 +88,11 @@
                                     <td>{{ $payment->remaining_amount }}</td>
                                     <td>{{ $payment->payment_date }}</td>
                                     <td>{{ $payment->admin_name }}</td>
+                                    <td>
+                                        <a href="{{ route('payments.edit', $user->id) }}">
+                                            <i class="fas fa-edit"></i>
+                                        </a>
+                                    </td>
                                 </tr>
                             @endforeach
                         </tbody>
@@ -99,8 +105,7 @@
                             </a>
                         </div>
                         <div class="">
-                            <a class="btn btn-info"
-                                href="{{ route('payment.pdf', ['payment' => $user->payments->first()->id, 'user' => $user->id]) }}">
+                            <a class="btn btn-info" href="{{ route('payments.edit', $user->id) }}">
                                 <i class="fa-solid fa-circle-plus me-2"></i> Modifier ce paiement
                             </a>
                         </div>

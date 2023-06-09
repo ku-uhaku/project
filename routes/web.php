@@ -62,7 +62,7 @@ Route::prefix('dashboard')->middleware(['auth', 'SuperAdminAndAdmin'])->group(fu
 });
 
 Route::prefix('superadmin')->middleware(['auth', 'superadmin'])->group(function () {
-    Route::get('/', [SuperAdminController::class, 'index'])->name('superadmin.index');
+    Route::get('/', [SuperAdminController::class, 'index'])->name('superadmin');
     Route::get('/', [SuperAdminController::class, 'filter'])->name('superadmin.filter');
     Route::get('/profits', [SuperAdminController::class, 'profits'])->name('superadmin.profits');
     Route::get('/profits', [SuperAdminController::class, 'filterProfits'])->name('superadmin.filterProfits');

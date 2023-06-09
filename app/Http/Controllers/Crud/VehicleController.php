@@ -42,6 +42,7 @@ class VehicleController extends Controller
             'instructors' => '',
         ]);
 
+
         $vehicle = new Vehicle();
 
         $vehicle->title = $request->title;
@@ -53,7 +54,7 @@ class VehicleController extends Controller
 
             // Hash the image name and store it in the folder & update the user object
             $image = $request->image;
-            $image->store('public/profiles');
+            $image->store('public/vehicles');
             $vehicle->image = $image->hashName();
         }
 
@@ -104,7 +105,7 @@ class VehicleController extends Controller
 
             // Hash the image name and store it in the folder & update the user object
             $image = $request->image;
-            $image->store('public/profiles');
+            $image->store('public/vehicles');
             $vehicle->image = $image->hashName();
         }
 
