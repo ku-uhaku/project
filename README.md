@@ -71,10 +71,15 @@ Ce projet est une application web permettant de gérer une auto-école. Elle per
     ```
 
 8. Pour se connecter, utiliser ses identifiants (le mots de passe est 'password') ou créer un compte
-
+    - Super administrateur :
+        - email : superAdmin@mail.com
+        - mot de passe : password
     - Administrateur :
         - email : admin@mail.com
         - mot de passe : password
     - Moniteur :
-        - email : instructor1@mail.com / instructor2@mail.com
+        - email : instructor1@mail.com
+        - mot de passe : password
+    - Elève :
+        - email : student@mail.com
         - mot de passe : password
