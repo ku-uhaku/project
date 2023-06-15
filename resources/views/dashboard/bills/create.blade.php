@@ -35,8 +35,13 @@
                         <div class="row">
                             <div class="col">
                                 <div class="form-outline">
-                                    <input type="text" class="form-control" name="title" id="title"
-                                        value="{{ old('title') }}">
+                                    <select name="title" id="title" class="form-control">
+                                        <option value="" disabled selected>----</option>
+                                        <option value="electricité">L'electricité</option>
+                                        <option value="eau">l'eau</option>
+                                        <option value="louer">Louer</option>
+                                        <option value="vehicle">Vehicle</option>
+                                    </select>
                                     @error('title')
                                         <small class="text-danger">{{ $message }}</small>
                                     @enderror

@@ -31,6 +31,7 @@ class NewPayment extends Controller
         $payment->goal_amount = $request->total;
         $payment->remaining_amount = $request->total;
         $payment->amount_paid = $request->amount;
+        $payment->payment_date = $request->date ? $request->date : now();
         $payment->bywho = Auth::user()->id;
         $payment->save();
 

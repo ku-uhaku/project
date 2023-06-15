@@ -124,7 +124,7 @@
 
                 </div>
                 <div class="mb-3">
-                    <select class="form-select" aria-label="Default select example" name="type">
+                    <select class="form-select" aria-label="Default select example" name="type" id="user-type">
                         <option value="admin">Admin</option>
                         <option value="instructor">Instructor</option>
                         <option value="student" selected>Student</option>
@@ -133,6 +133,19 @@
                         <div class="text-danger">{{ $message }}</div>
                     @enderror
                     <label for="type" class="form-label">Type</label>
+
+                </div>
+                <div class="mb-3" id="permis-type">
+                    <select class="form-select" aria-label="Default select example" name="permission_type">
+                        @foreach ($permissions as $permission)
+                            <option value={{ $permission->type_permis }}>
+                                {{ $permission->type_permis }}</option>
+                        @endforeach
+                    </select>
+                    @error('permission_type')
+                        <div class="text-danger">{{ $message }}</div>
+                    @enderror
+                    <label for="type" class="form-label">Type_permis</label>
 
                 </div>
 
@@ -161,6 +174,18 @@
                 passwordConfirmation.setCustomValidity('Les mots de passe ne correspondent pas');
             } else {
                 passwordConfirmation.setCustomValidity('');
+            }
+        });
+
+        const userType = document.getElementById('user-type');
+        const permisType = document.getElementById('permis-type');
+
+        userType.addEventListener('change', function() {
+
+            if (userType.value === 'student') {
+                permisType.style.display = "block";
+            } else {
+                permisType.style.display = "none";
             }
         });
     </script>

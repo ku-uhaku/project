@@ -62,6 +62,8 @@ class DatabaseSeeder extends Seeder
             'birthdate' => '1999-12-30',
             'password' => bcrypt('password'),
             'type' => 'admin',
+            'is_active' => 1,
+
             'created_at' => now(),
             'updated_at' => now(),
         ]);
@@ -75,6 +77,8 @@ class DatabaseSeeder extends Seeder
             'password' => bcrypt('password'),
             'type' => 'instructor',
             'bywho' => 1,
+            'is_active' => 1,
+
             'created_at' => now(),
             'updated_at' => now(),
         ]);
@@ -88,6 +92,8 @@ class DatabaseSeeder extends Seeder
             'password' => bcrypt('password'),
             'type' => 'instructor',
             'bywho' => 2,
+            'is_active' => 1,
+
             'created_at' => now(),
             'updated_at' => now(),
 
@@ -100,6 +106,8 @@ class DatabaseSeeder extends Seeder
             'address' => 'Rue de la Paix, 1000 Bruxelles',
             'password' => bcrypt('password'),
             'type' => 'student',
+            'permission_type' => 'B',
+            'is_active' => 1,
             'created_at' => now(),
             'updated_at' => now(),
 

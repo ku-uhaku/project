@@ -14,7 +14,9 @@ return new class extends Migration
         Schema::create('users', function (Blueprint $table) {
             $table->id();
             $table->string('name');
+            // $table->string('last_name');
             $table->string('email')->unique();
+            // $table->string('CIN')->unique();
             $table->string('phone')->nullable();
             $table->string('address')->nullable();
             $table->date('birthdate')->nullable();
@@ -22,6 +24,8 @@ return new class extends Migration
             $table->enum('type', ['student', 'instructor', 'admin', 'superAdmin'])->default('student');
             $table->string('image')->nullable();
             $table->string('bywho');
+            $table->enum('permission_type', ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K'])->nullable();
+            $table->boolean('is_active')->default(1);
             $table->timestamps();
         });
     }

@@ -8,7 +8,7 @@
 
         <div class="container">
             <div class="row">
-                <h1 class="mb-4 h2 ">Gérer les Salaires des travailleurs</h1>
+                <h1 class="my-4 h2 ">Gérer les Salaires des travailleurs</h1>
                 <x-alerts></x-alerts>
             </div>
             <div class="row mb-3">
@@ -46,7 +46,6 @@
                     </div>
                 </div>
             </div>
-
             <div class="row">
                 @if ($spendings->isNotEmpty())
                     <table class="table table-striped">

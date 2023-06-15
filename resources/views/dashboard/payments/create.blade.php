@@ -68,17 +68,33 @@
                     @csrf
                     <input type="hidden" name="id" id="id" value="{{ $user->id }}">
                     <div class="row">
-                        <div class="col">
-                            <div class="form-outline">
-                                <input type="text" class="form-control" name="total" id="total"
-                                    value="{{ optional($user->payments->last())->goal_amount ?? '' }}">
-                                @error('total')
-                                    <small class="text-danger">{{ $message }}</small>
-                                @enderror
-                                <label for="total" class="form-label">Total</label>
-                            </div>
-                        </div>
 
+                        @foreach ($permissions as $permission)
+                            @if ($permission->type_permis == $user->permission_type)
+                                <div class="col">
+                                    <div class="form-outline">
+                                        <input type="text" class="form-control" name="total" id="total"
+                                            value="{{ $permission->prix }}">
+                                        @error('total')
+                                            <small class="text-danger">{{ $message }}</small>
+                                        @enderror
+                                        <label for="total" class="form-label">Total</label>
+                                    </div>
+                                </div>
+                            @endif
+                        @endforeach
+
+                    </div>
+
+                    <div class="col">
+                        <div class="form-outline">
+                            <input type="text" class="form-control" name="remise" id="remise"
+                                value="{{ old('Remise') }}">
+                            @error('Remise')
+                                <small class="text-danger">{{ $message }}</small>
+                            @enderror
+                            <label for="total" class="form-label">Remise</label>
+                        </div>
                     </div>
 
                     <div class="row mb-3">

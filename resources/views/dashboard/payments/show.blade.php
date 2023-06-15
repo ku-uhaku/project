@@ -88,10 +88,18 @@
                                     <td>{{ $payment->remaining_amount }}</td>
                                     <td>{{ $payment->payment_date }}</td>
                                     <td>{{ $payment->admin_name }}</td>
-                                    <td>
+                                    <td class="align-middle d-flex justify-content-around align-items-center">
                                         <a href="{{ route('payments.edit', $user->id) }}">
                                             <i class="fas fa-edit"></i>
                                         </a>
+                                        <form action="{{ route('payments.destroy', ['payment' => $payment]) }}"
+                                            method="post">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button type="submit" class="btn btn-link p-0">
+                                                <i class="fas fa-trash-alt"></i>
+                                            </button>
+                                        </form>
                                     </td>
                                 </tr>
                             @endforeach

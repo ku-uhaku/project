@@ -91,6 +91,7 @@ class ExamController extends Controller
      */
     public function show(Exam $exam)
     {
+
         // Get the exam, instructor and vehicle and the students (using the pivot table)
         $exam = Exam::with('user')->find($exam->id);
         $instructor = User::find($exam->instructor_id);

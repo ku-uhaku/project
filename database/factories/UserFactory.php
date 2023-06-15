@@ -29,6 +29,8 @@ class UserFactory extends Factory
             'type' => 'student',
             'image' => null,
             'bywho' => $this->faker->randomElement([1, 2]),
+            'is_active' => $this->faker->randomElement([1, 0]),
+
             'created_at' => now(),
             'updated_at' => now(),
         ];

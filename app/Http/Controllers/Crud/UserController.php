@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Crud;
 use App\Models\User;
 
 use Illuminate\Http\Request;
+use App\Models\PermissionType;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 
@@ -29,7 +30,9 @@ class UserController extends Controller
      */
     public function create()
     {
-        return view('dashboard.users.create');
+        $permissions = PermissionType::all();
+
+        return view('dashboard.users.create', compact('permissions'));
     }
 
     /**
@@ -55,6 +58,7 @@ class UserController extends Controller
 
         // Create a new user object
         $user = new User();
+        $users = User::paginate(10);
 
         // Assign the values to the user object
         $user->name = $request->name;
@@ -64,6 +68,7 @@ class UserController extends Controller
         $user->birthdate = $request->birthdate;
         $user->password = bcrypt($request->password);
         $user->bywho = Auth::user()->id;
+        $user->permission_type = $request->permission_type;
 
         // Check if the request has a file
         if ($request->hasFile('image')) {
@@ -76,9 +81,9 @@ class UserController extends Controller
 
         // Save the user object with an error/success message
         if ($user->save()) {
-            return redirect()->back()->with('success', 'User created successfully');
+            return redirect()->route('users.index')->with('success', 'User created successfully');
         } else {
-            return redirect()->back()->with('error', 'Something went wrong');
+            return view('dashboard.users.index', compact('users'))->with('error', 'User creation failed');
         }
     }
 

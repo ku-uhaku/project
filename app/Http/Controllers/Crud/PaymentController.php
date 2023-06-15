@@ -8,6 +8,7 @@ use App\Models\Payment;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
+use App\Models\PermissionType;
 use Illuminate\Support\Facades\Auth;
 
 class PaymentController extends Controller
@@ -77,10 +78,10 @@ class PaymentController extends Controller
     public function create(Request $request)
     {
         // dd($request->all());
-
+        $permissions = PermissionType::all();
         if ($request->user) {
             $user = User::findOrFail($request->user);
-            return view('dashboard.payments.create', compact('user'));
+            return view('dashboard.payments.create', compact('user', 'permissions'));
         } else {
             return redirect()->route('payments.index')->with('error', 'You must select a student first');
         }
@@ -94,16 +95,16 @@ class PaymentController extends Controller
         // dd($request->all());
         $request->validate([
             // 'student_id' => 'required',
-            'total' => 'required|numeric',
+            // 'total' => 'required|numeric',
 
         ]);
 
         $payment = new Payment();
         $payment->student_id = $request->id;
 
-        $payment->goal_amount = $request->total;
+        $payment->goal_amount = $request->total - $request->remise;
 
-        $payment->payment_date = $request->date;
+        $payment->payment_date = $request->date ? $request->date : now();
         $payment->bywho = Auth::user()->id;
         $payment->save();
 
@@ -160,6 +161,10 @@ class PaymentController extends Controller
      */
     public function destroy(Payment $payment)
     {
-        //
+        if ($payment->delete()) {
+            return redirect()->route('payments.index')->with('success', 'Payment deleted successfully');
+        } else {
+            return redirect()->route('payments.index')->with('error', 'Payment not deleted');
+        }
     }
 }

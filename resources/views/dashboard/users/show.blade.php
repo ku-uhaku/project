@@ -122,11 +122,22 @@
                             <td>
                                 <strong>
                                     <i class="fas fa-image"></i>
-                                    Add by who:
+                                    Par qui:
                                 </strong>
                             </td>
                             <td>
                                 {{ $bywho->name }}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <strong>
+                                    <i class="fas fa-image"></i>
+                                    Permis type:
+                                </strong>
+                            </td>
+                            <td>
+                                {{ $user->permission_type }}
                             </td>
                         </tr>
                     </tbody>

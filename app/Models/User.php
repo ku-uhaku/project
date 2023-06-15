@@ -70,4 +70,8 @@ class User extends Model implements Authenticatable
     {
         return $this->belongsToMany(Session::class)->withTimestamps();
     }
+    public function permissions()
+    {
+        return $this->belongsToMany(PermissionType::class)->withTimestamps();
+    }
 }

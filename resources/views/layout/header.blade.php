@@ -50,7 +50,7 @@
                     </ul>
                 </div>
             @endif
-            @if (request()->is('dashboard*'))
+            @if (request()->is('*dashboard'))
 
                 @if ((Auth::user() && Auth::user()->type == 'admin') || (Auth::user() && Auth::user()->type == 'superAdmin'))
                     <div class="nav-item dropdown">
