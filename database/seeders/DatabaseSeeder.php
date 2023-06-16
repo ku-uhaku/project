@@ -238,7 +238,7 @@ class DatabaseSeeder extends Seeder
             'remaining_amount' => 700,
             'payment_date' => '2021-07-06',
             'bywho' => 1,
-            'created_at' => now(),
+            'created_at' => "2022-06-14 13:23:26",
             'updated_at' => now(),
         ]);
         Payment::create([
@@ -248,7 +248,7 @@ class DatabaseSeeder extends Seeder
             'remaining_amount' => 200,
             'payment_date' => '2021-07-06',
             'bywho' => 1,
-            'created_at' => now(),
+            'created_at' => "2023-07-14 13:23:26",
             'updated_at' => now(),
         ]);
         Payment::create([
@@ -258,7 +258,7 @@ class DatabaseSeeder extends Seeder
             'remaining_amount' => 9700,
             'payment_date' => '2021-07-06',
             'bywho' => 1,
-            'created_at' => now(),
+            'created_at' => "2023-05-14 13:23:26",
             'updated_at' => now(),
         ]);
         // Payment::factory()->count(10)->create();
